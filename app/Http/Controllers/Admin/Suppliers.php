@@ -51,13 +51,14 @@ class Suppliers extends BackEndController
     public function profile($id)
     {
         $supplier = Supplier::find($id);
+        $request = Request::all();
         $PageTitle = "suppliers";
         $profile = 'Profile';
         $headerLevelProcessTitle1 = $PageTitle;
         $headerLevelProcessTitle2 = $supplier['name'];
         $buttonsRoutsname = $modelViewName = $PageTitle;
 
-        return View('Admin.suppliers.profile',compact('supplier','PageTitle','profile','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.suppliers.profile',compact('supplier','request','PageTitle','profile','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
     }
 
     public function saveBalance(SupplierBalanceStore $request)

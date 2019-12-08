@@ -190,7 +190,8 @@
                       </div>
 
                       <div class="tab-pane" id="requests">
-                          test
+                          {{ $request['0']->phone }}
+                          {{ $request['0']->request }}
                       </div>
                       <!-- /.tab-pane -->
                   </div>

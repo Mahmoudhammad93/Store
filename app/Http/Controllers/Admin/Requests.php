@@ -26,7 +26,7 @@ class Requests extends BackEndController
     }
     public function profile($id)
     {
-        $request = Request::all($id);
+        $request = Request::find($id);
         return View('Admin.suppliers.profile',compact('request'));
     }
 }
