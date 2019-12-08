@@ -190,8 +190,11 @@
                       </div>
 
                       <div class="tab-pane" id="requests">
-                          {{ $request['0']->phone }}
-                          {{ $request['0']->request }}
+                          
+
+                      @for($i = 0; $i >= $request->count(); $i++)
+                              {{ $request[''.$i.'']->phone }}
+                          @endfor
                       </div>
                       <!-- /.tab-pane -->
                   </div>
