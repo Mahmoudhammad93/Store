@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="content">
-    <div class="overlay popup">
+    <div class="overlay popup request">
         <div class="request-form">
             <div class="cart">
                 <div class="cart-header">
@@ -19,6 +19,35 @@
                     <form method="POST" action="{{route('requests.store')}}" id="insertForm">
                         {{ csrf_field() }}
                         @include('admin.'.$buttonsRoutsname.'.components.formRequest')
+                    </form>
+                    @php
+                        }
+                    @endphp
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay popup edit-request">
+        <div class="request-form">
+            <div class="cart">
+                <div class="cart-header">
+                    <h5 class="title">
+                        Request Offers
+                        <i class="fa fa-close"></i>
+                    </h5>
+                </div>
+                <div class="cart-body">
+
+                    @php
+                        if ($profile){
+                    @endphp
+                    <form method="POST" action="{{route('requests.store')}}" id="insertForm">
+                        {{ csrf_field() }}
+                        @include('admin.'.$buttonsRoutsname.'.components.formEditRequest')
+                    </form>
+                    <form method="POST" action="{{route('requests.store')}}" id="insertForm">
+                        {{ csrf_field() }}
+                        @include('admin.'.$buttonsRoutsname.'.components.formEditRequest')
                     </form>
                     @php
                         }
@@ -73,7 +102,7 @@
                   <ul class="nav nav-tabs">
                       <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="true">Activity ( المعاملات النقدية ) </a></li>
                       <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">Add ( اضافة معاملة نقدية )</a></li>
-                      <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false">Requests ( الطلبات المرسلة )</a></li>
+                      <li class=""><a href="#requests" data-toggle="tab" aria-expanded="false">Requests ( الطلبات المرسلة ) <span class="badge badge-danger">{{$requests->count()}}</span> </a></li>
                   </ul>
                   <div class="tab-content">
                       <div class="tab-pane active" id="activity">
@@ -190,11 +219,45 @@
                       </div>
 
                       <div class="tab-pane" id="requests">
-                          
 
-                      @for($i = 0; $i >= $request->count(); $i++)
-                              {{ $request[''.$i.'']->phone }}
-                          @endfor
+                          <div class="requests">
+                              @if($requests->count() <= 0)
+                                  <div class="empty-box">
+                                      <div class="image">
+                                          <img src="{{asset('image/box.png')}}" alt="">
+                                      </div>
+                                      <p>Requests is empty</p>
+                                  </div>
+                              @else
+                                  @foreach($requests as $request)
+                                  <div class="req-info">
+                                      <span class="badge badge-default status">Wating</span>
+                                      <p class="phone">{{ $request->phone }}</p>
+                                      <p class="time">
+                                          {{ $request->created_at }}
+                                      </p>
+                                  </div>
+                                  <div class="req-content">
+                                      <div class="req-op">
+                                          <a href="{{route('requests.edit',$request->id)}}" id="btn-req-edit" class="btn btn-sm btn-warning btn-flat center"><i class="fa fa-edit"></i> Edit ( تعديل ) </a>
+                                          <form method="POST" action="{{route('requests.destroy',$request->id)}}" style="display: inline;">
+                                              {{ csrf_field() }}
+                                              {{ method_field('delete') }}
+                                              <button class="btn btn-sm btn-danger btn-flat center"><i class="fa fa-trash"></i> Delete ( مسح ) </button>
+                                          </form>
+                                      </div>
+                                      <div class="qut-right">
+                                          <img src="{{asset('image/qut.png')}}" alt="">
+                                      </div>
+                                      <p>{{ $request->request }}</p>
+                                      <div class="qut-left">
+                                          <img src="{{asset('image/qut.png')}}" alt="">
+                                      </div>
+                                  </div>
+                                  @endforeach
+                              @endif
+                          </div>
+
                       </div>
                       <!-- /.tab-pane -->
                   </div>

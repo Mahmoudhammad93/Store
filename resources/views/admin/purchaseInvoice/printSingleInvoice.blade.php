@@ -1,8 +1,9 @@
-@if( is_permited('PurchaseInvoice','print') == 1 ) 
+@if( is_permited('PurchaseInvoice','print') == 1 )
 @extends('admin.shared.master')
 @section('content')
 
 <section class="invoice">
+
       <!-- title row -->
       <div class="row">
         <div class="col-xs-12">
@@ -16,16 +17,16 @@
       <!-- info row -->
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
-          From ( من ) : <strong> {{ $row->getSupplier->name }} </strong> 
+          From ( من ) : <strong> {{ $row->getSupplier->name }} </strong>
           <address>
-            <br> Address ( العنوان )  : {{ $row->getSupplier->address }} 
+            <br> Address ( العنوان )  : {{ $row->getSupplier->address }}
             <br> Phone ( رقم الهاتف ) : {{ $row->getSupplier->phone }}
           </address>
         </div>
         <!-- /.col -->
         <div class="col-sm-4 invoice-col">
           <address>
-            
+
           </address>
         </div>
         <!-- /.col -->

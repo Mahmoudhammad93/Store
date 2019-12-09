@@ -23,7 +23,7 @@ class CreateSupplierStartBalancesTable extends Migration
             $table->string('depet_value');
             $table->string('invoice_id')->nullable();
             $table->string('total_balance');
-            
+
             $table->timestamps();
         });
     }

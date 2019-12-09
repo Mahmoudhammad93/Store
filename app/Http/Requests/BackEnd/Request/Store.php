@@ -24,6 +24,7 @@ class Store extends FormRequest
     public function rules()
     {
         return [
+            'supId'    => 'required',
             'phone'    => 'required',
             'request'  => 'required'
         ];

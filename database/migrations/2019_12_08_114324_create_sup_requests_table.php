@@ -15,6 +15,7 @@ class CreateSupRequestsTable extends Migration
     {
         Schema::create('sup_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('supId');
             $table->string('phone');
             $table->string('request');
             $table->timestamps();

@@ -46,6 +46,10 @@ ul{
     border-radius: 0;
 }
 
+.no-scroll{
+    overflow-y: hidden;
+}
+
 /* .content-wrapper{
     background-image: url(../image/shop-bg-2.jpg);
     background-repeat: no-repeat;
@@ -177,6 +181,139 @@ div#AllProducts > div{
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
+
+.requests{
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.requests .empty-box{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.requests .empty-box .image{
+    width: 150px;
+    height: 150px;
+}
+.requests .empty-box .image img{
+    width: 100%;
+    height: 100%;
+}
+
+.requests .empty-box p{
+    font-size: 20px;
+    font-weight: bold;
+    color: #aaa;
+    font-font: sans-serif;
+}
+
+input.ph-req{
+
+}
+
+.req-info, .req-content{
+    height: 120px;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 2px;
+    float: left;
+    box-shadow: 0px 0px 4px #94949485;
+    margin-bottom: 10px;
+}
+
+.req-info {
+    position: relative;
+    width: 19%;
+    margin-right: 5px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.req-info .status{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.req-content {
+    position: relative;
+    width: calc(100% - 20%);
+    overflow: hidden;
+}
+
+.req-content .req-op{
+    position: absolute;
+    bottom: -30px;
+    right: calc((100% - 192px) / 2);
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+}
+
+.req-content:hover .req-op{
+    bottom: 7px;
+}
+
+.req-content .req-op .btn-group .btn-default.dropdown-toggle{
+    padding: 0 5px;
+    border: none;
+}
+
+.req-content .req-op .btn-group .btn-default.dropdown-toggle:hover{
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.req-content .req-op .dropdown-menu{
+    transform: translate3d(-136px, 25px, 0px) !important;
+}
+
+.req-content p{
+    text-align: center;
+    width: 90%;
+    margin: auto;
+    height: 60px;
+}
+
+.req-info p{
+    margin: 0;
+}
+
+.req-info p.phone{
+    font-weight: bold;
+}
+
+.req-info p.time{
+    color: #aaa;
+    font-size: 12px;
+}
+
+.qut-right,
+.qut-left{
+    width: 20px;
+    height: 20px;
+}
+
+.qut-right img,
+.qut-left img{
+    width: 100%;
+    height: 100%;
+}
+
+.qut-right img{
+    transform: rotateY(180deg);
+}
+
+.qut-left{
+    float: right;
+}
+
 /*--------- /end request form popup ----------*/
 
 @keyframes heart{
