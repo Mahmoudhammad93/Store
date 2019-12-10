@@ -31139,7 +31139,7 @@ function inflateReset2(strm, windowBits) {
   if (!strm || !strm.state) { return Z_STREAM_ERROR; }
   state = strm.state;
 
-  /* extract wrap request from windowBits parameter */
+  /* extract wrap requests from windowBits parameter */
   if (windowBits < 0) {
     wrap = 0;
     windowBits = -windowBits;
@@ -45367,7 +45367,7 @@ function initialReordering(font, glyphs, plan) {
       // with Sanskrit 2003 font.
       //
       // However, note that Ra,Halant,ZWJ is the correct way to
-      // request eyelash form of Ra, so we wouldbn't inhibit it
+      // requests eyelash form of Ra, so we wouldbn't inhibit it
       // in that sequence.
       //
       // Test case: U+0924,U+094D,U+0930,U+094d,U+200D,U+0915

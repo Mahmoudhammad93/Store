@@ -1327,7 +1327,7 @@ ColReorder.defaults = {
 	 * Redraw the table's column ordering as the end user draws the column
 	 * (`true`) or wait until the mouse is released (`false` - default). Note
 	 * that this will perform a redraw on each reordering, which involves an
-	 * Ajax request each time if you are using server-side processing in
+	 * Ajax requests each time if you are using server-side processing in
 	 * DataTables.
 	 *  @type boolean
 	 *  @default false

@@ -19,14 +19,14 @@ class Products extends BackEndController
         if($request['code'] == ""){
             $request['code'] = rand();
         }
-                
+
         if($row->create($request->toArray())){
-            swal()->button('Close Me')->message('تم','تم اضافة المنتج بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تم اضافة المنتج بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
-       
+
     }
 
     public function show($id)
@@ -39,7 +39,6 @@ class Products extends BackEndController
             'categories' => Category::all(),
             'units' => Unit::all(),
         ];
-
         return $array;
     }
 
@@ -49,12 +48,12 @@ class Products extends BackEndController
         $row = $this->model->findOrFail($id);
         if($request['code'] == ""){
             $request['code'] = rand();
-            
+
         }
         if($row->update($request->toArray())){
-            swal()->button('Close Me')->message('تم','تم تعديل المنتج بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تم تعديل المنتج بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }
@@ -67,5 +66,5 @@ class Products extends BackEndController
         }
         return $rows;
     }
-  
+
 }

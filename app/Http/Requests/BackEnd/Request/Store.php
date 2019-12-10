@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class Store extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the user is authorized to make this requests.
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class Store extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that apply to the requests.
      *
      * @return array
      */
@@ -26,7 +26,7 @@ class Store extends FormRequest
         return [
             'supId'    => 'required',
             'phone'    => 'required',
-            'request'  => 'required'
+            'requests'  => 'required'
         ];
     }
 }

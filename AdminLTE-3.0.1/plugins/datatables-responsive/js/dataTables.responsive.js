@@ -1294,7 +1294,7 @@ Responsive.defaults = {
 	},
 
 	/**
-	 * Orthogonal data request option. This is used to define the data type
+	 * Orthogonal data requests option. This is used to define the data type
 	 * requested when Responsive gets the data to show in the child row.
 	 *
 	 * @type {String}

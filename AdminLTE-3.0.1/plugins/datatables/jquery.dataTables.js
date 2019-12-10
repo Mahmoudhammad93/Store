@@ -2732,7 +2732,7 @@
 	
 				for ( var i=0, iLen=a.length-1 ; i<iLen ; i++ )
 				{
-					// Check if we are dealing with an array notation request
+					// Check if we are dealing with an array notation requests
 					arrayNotation = a[i].match(__reArray);
 					funcNotation = a[i].match(__reFn);
 	
@@ -3982,7 +3982,7 @@
 	
 	/**
 	 * Build up the parameters in an object needed for a server-side processing
-	 * request. Note that this is basically done twice, is different ways - a modern
+	 * requests. Note that this is basically done twice, is different ways - a modern
 	 * method which is used by default in DataTables 1.10 which uses objects and
 	 * arrays, or the 1.9- method with is name / value pairs. 1.9 method is used if
 	 * the sAjaxSource option is used in the initialisation, or the legacyAjax
@@ -6089,7 +6089,7 @@
 	
 	
 	/**
-	 * Function to run on user sort request
+	 * Function to run on user sort requests
 	 *  @param {object} settings dataTables settings object
 	 *  @param {node} attachTo node to attach the handler to
 	 *  @param {int} colIdx column sorting index
@@ -7576,7 +7576,7 @@
 		else {
 			_fnProcessingDisplay( settings, true );
 	
-			// Cancel an existing request
+			// Cancel an existing requests
 			var xhr = settings.jqXHR;
 			if ( xhr && xhr.readyState !== 4 ) {
 				xhr.abort();
@@ -7599,7 +7599,7 @@
 	
 	
 	/**
-	 * Get the JSON response from the last Ajax request that DataTables made to the
+	 * Get the JSON response from the last Ajax requests that DataTables made to the
 	 * server. Note that this returns the JSON from the first table in the current
 	 * context.
 	 *
@@ -7617,7 +7617,7 @@
 	
 	
 	/**
-	 * Get the data submitted in the last Ajax request
+	 * Get the data submitted in the last Ajax requests
 	 */
 	_api_register( 'ajax.params()', function () {
 		var ctx = this.context;
@@ -10056,7 +10056,7 @@
 		 *
 		 * As an object, the parameters in the object are passed to
 		 * [jQuery.ajax](http://api.jquery.com/jQuery.ajax/) allowing fine control
-		 * of the Ajax request. DataTables has a number of default parameters which
+		 * of the Ajax requests. DataTables has a number of default parameters which
 		 * you can override using this option. Please refer to the jQuery
 		 * documentation for a full description of the options available, although
 		 * the following parameters provide additional options in DataTables or
@@ -10090,7 +10090,7 @@
 		 * ----------
 		 *
 		 * As a function, making the Ajax call is left up to yourself allowing
-		 * complete control of the Ajax request. Indeed, if desired, a method other
+		 * complete control of the Ajax requests. Indeed, if desired, a method other
 		 * than Ajax could be used to obtain the required data, such as Web storage
 		 * or an AIR database.
 		 *
@@ -10156,7 +10156,7 @@
 		 *   } );
 		 *
 		 * @example
-		 *   // Add data to the request
+		 *   // Add data to the requests
 		 *   $('#example').dataTable( {
 		 *     "ajax": {
 		 *       "url": "data.json",
@@ -10169,7 +10169,7 @@
 		 *   } );
 		 *
 		 * @example
-		 *   // Send request as POST
+		 *   // Send requests as POST
 		 *   $('#example').dataTable( {
 		 *     "ajax": {
 		 *       "url": "data.json",
@@ -10842,7 +10842,7 @@
 		 * since that is obtained using an async XHR call.
 		 *  @type function
 		 *  @param {object} settings DataTables settings object
-		 *  @param {object} json The JSON object request from the server - only
+		 *  @param {object} json The JSON object requests from the server - only
 		 *    present if client-side Ajax sourced data is used
 		 *
 		 *  @dtopt Callbacks
@@ -10946,7 +10946,7 @@
 		 * superseded by that provided through `ajax`, which should be used instead.
 		 *
 		 *  It is often useful to send extra data to the server when making an Ajax
-		 * request - for example custom filtering information, and this callback
+		 * requests - for example custom filtering information, and this callback
 		 * function makes it trivial to send extra information to the server. The
 		 * passed in parameter is the data set that has been constructed by
 		 * DataTables, and you can add to this or modify it as you require.
@@ -11088,7 +11088,7 @@
 		 *      $('#example').dataTable( {
 		 *        "stateSave": true,
 		 *        "stateSaveCallback": function (settings, data) {
-		 *          // Send an Ajax request to the server with the state object
+		 *          // Send an Ajax requests to the server with the state object
 		 *          $.ajax( {
 		 *            "url": "/state_save",
 		 *            "data": data,
@@ -11158,7 +11158,7 @@
 	
 	
 		/**
-		 * When enabled DataTables will not make a request to the server for the first
+		 * When enabled DataTables will not make a requests to the server for the first
 		 * page draw - rather it will use the data already on the page (no sorting etc
 		 * will be applied to it), thus saving on an XHR at load time. `deferLoading`
 		 * is used to indicate that deferred loading is required, but it is also used
@@ -13036,7 +13036,7 @@
 	
 			/**
 			 * Processing indicator enable flag whenever DataTables is enacting a
-			 * user request - typically an Ajax request for server-side processing.
+			 * user requests - typically an Ajax requests for server-side processing.
 			 * Note that this parameter will be set by the initialisation routine. To
 			 * set a default use {@link DataTable.defaults}.
 			 *  @type boolean
@@ -13583,14 +13583,14 @@
 		"jqXHR": null,
 	
 		/**
-		 * JSON returned from the server in the last Ajax request
+		 * JSON returned from the server in the last Ajax requests
 		 *  @type object
 		 *  @default undefined
 		 */
 		"json": undefined,
 	
 		/**
-		 * Data submitted as part of the last Ajax request
+		 * Data submitted as part of the last Ajax requests
 		 *  @type object
 		 *  @default undefined
 		 */
@@ -13605,7 +13605,7 @@
 		"fnServerData": null,
 	
 		/**
-		 * Functions which are called prior to sending an Ajax request so extra
+		 * Functions which are called prior to sending an Ajax requests so extra
 		 * parameters can easily be sent to the server
 		 *  @type array
 		 *  @default []
@@ -15211,7 +15211,7 @@
 	 *  @event
 	 *  @param {event} e jQuery event object
 	 *  @param {object} oSettings DataTables settings object
-	 *  @param {object} json The JSON object request from the server - only
+	 *  @param {object} json The JSON object requests from the server - only
 	 *    present if client-side Ajax sourced data is used</li></ol>
 	 */
 
@@ -15262,8 +15262,8 @@
 	 */
 
 	/**
-	 * Ajax (XHR) event, fired whenever an Ajax request is completed from a
-	 * request to made to the server for new data. This event is called before
+	 * Ajax (XHR) event, fired whenever an Ajax requests is completed from a
+	 * requests to made to the server for new data. This event is called before
 	 * DataTables processed the returned data, so it can also be used to pre-
 	 * process the data returned from the server, if needed.
 	 *

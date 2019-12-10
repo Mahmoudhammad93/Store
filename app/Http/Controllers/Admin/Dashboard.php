@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Patient;
 use App\models\Reservation;
-use Illuminate\Http\Request;
+use App\models\Request;
 use App\Http\Controllers\Controller;
 use App\models\User;
 use App\models\Supplier;
@@ -20,8 +20,9 @@ class Dashboard extends Controller
         $products  = Product::all();
         $patients  = Patient::all();
         $reservations = Reservation::all();
+        $requests = Request::all();
         $totalGard = 0;
-        $totalAlert = 0; 
+        $totalAlert = 0;
         foreach($products as $progard){
            $totalGard = $totalGard + ( $progard->sell_price * $progard->quantity ) ;
            if($progard->quantity < $progard->alert_quantity ){
@@ -43,7 +44,7 @@ class Dashboard extends Controller
         $headerLevelProcessTitle2 = "Statidtics ( احصائيات )";
         $buttonsRoutsname = $modelViewName = "dashboard";
 
-        return View('Admin.dashboard',compact('totalAlert','totalGard','todayTotalGain','box','sellInvoice','purchaseInvoice','products','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-    
+        return View('Admin.dashboard',compact('totalAlert','totalGard','todayTotalGain','box','sellInvoice','requests','purchaseInvoice','products','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+
     }
 }

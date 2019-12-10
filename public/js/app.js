@@ -151,7 +151,7 @@ module.exports = function xhrAdapter(config) {
 
     request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
 
-    // Set the request timeout in MS
+    // Set the requests timeout in MS
     request.timeout = config.timeout;
 
     // Listen for ready state
@@ -160,10 +160,10 @@ module.exports = function xhrAdapter(config) {
         return;
       }
 
-      // The request errored out and we didn't get a response, this will be
+      // The requests errored out and we didn't get a response, this will be
       // handled by onerror instead
-      // With one exception: request that using file: protocol, most browsers
-      // will return status as 0 even though it's a successful request
+      // With one exception: requests that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful requests
       if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
         return;
       }
@@ -183,7 +183,7 @@ module.exports = function xhrAdapter(config) {
 
       settle(resolve, reject, response);
 
-      // Clean up request
+      // Clean up requests
       request = null;
     };
 
@@ -193,7 +193,7 @@ module.exports = function xhrAdapter(config) {
       // onerror should only fire if it's a network error
       reject(createError('Network Error', config, null, request));
 
-      // Clean up request
+      // Clean up requests
       request = null;
     };
 
@@ -202,7 +202,7 @@ module.exports = function xhrAdapter(config) {
       reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
         request));
 
-      // Clean up request
+      // Clean up requests
       request = null;
     };
 
@@ -222,25 +222,25 @@ module.exports = function xhrAdapter(config) {
       }
     }
 
-    // Add headers to the request
+    // Add headers to the requests
     if ('setRequestHeader' in request) {
       utils.forEach(requestHeaders, function setRequestHeader(val, key) {
         if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
           // Remove Content-Type if data is undefined
           delete requestHeaders[key];
         } else {
-          // Otherwise add header to the request
+          // Otherwise add header to the requests
           request.setRequestHeader(key, val);
         }
       });
     }
 
-    // Add withCredentials to request if needed
+    // Add withCredentials to requests if needed
     if (config.withCredentials) {
       request.withCredentials = true;
     }
 
-    // Add responseType to request if needed
+    // Add responseType to requests if needed
     if (config.responseType) {
       try {
         request.responseType = config.responseType;
@@ -272,7 +272,7 @@ module.exports = function xhrAdapter(config) {
 
         request.abort();
         reject(cancel);
-        // Clean up request
+        // Clean up requests
         request = null;
       });
     }
@@ -281,7 +281,7 @@ module.exports = function xhrAdapter(config) {
       requestData = null;
     }
 
-    // Send the request
+    // Send the requests
     request.send(requestData);
   });
 };
@@ -397,7 +397,7 @@ module.exports = Cancel;
 var Cancel = __webpack_require__(/*! ./Cancel */ "./node_modules/axios/lib/cancel/Cancel.js");
 
 /**
- * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ * A `CancelToken` is an object that can be used to requests cancellation of an operation.
  *
  * @class
  * @param {Function} executor The executor function.
@@ -499,9 +499,9 @@ function Axios(instanceConfig) {
 }
 
 /**
- * Dispatch a request
+ * Dispatch a requests
  *
- * @param {Object} config The config specific for this request (merged with this.defaults)
+ * @param {Object} config The config specific for this requests (merged with this.defaults)
  */
 Axios.prototype.request = function request(config) {
   /*eslint no-param-reassign:0*/
@@ -534,7 +534,7 @@ Axios.prototype.request = function request(config) {
   return promise;
 };
 
-// Provide aliases for supported request methods
+// Provide aliases for supported requests methods
 utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
   /*eslint func-names:0*/
   Axios.prototype[method] = function(url, config) {
@@ -638,12 +638,12 @@ module.exports = InterceptorManager;
 var enhanceError = __webpack_require__(/*! ./enhanceError */ "./node_modules/axios/lib/core/enhanceError.js");
 
 /**
- * Create an Error with the specified message, config, error code, request and response.
+ * Create an Error with the specified message, config, error code, requests and response.
  *
  * @param {string} message The error message.
  * @param {Object} config The config.
  * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
+ * @param {Object} [request] The requests.
  * @param {Object} [response] The response.
  * @returns {Error} The created error.
  */
@@ -682,9 +682,9 @@ function throwIfCancellationRequested(config) {
 }
 
 /**
- * Dispatch a request to the server using the configured adapter.
+ * Dispatch a requests to the server using the configured adapter.
  *
- * @param {object} config The config that is to be used for the request
+ * @param {object} config The config that is to be used for the requests
  * @returns {Promise} The Promise to be fulfilled
  */
 module.exports = function dispatchRequest(config) {
@@ -698,7 +698,7 @@ module.exports = function dispatchRequest(config) {
   // Ensure headers exist
   config.headers = config.headers || {};
 
-  // Transform request data
+  // Transform requests data
   config.data = transformData(
     config.data,
     config.headers,
@@ -769,7 +769,7 @@ module.exports = function dispatchRequest(config) {
  * @param {Error} error The error to update.
  * @param {Object} config The config.
  * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
+ * @param {Object} [request] The requests.
  * @param {Object} [response] The response.
  * @returns {Error} The error.
  */
@@ -837,10 +837,10 @@ module.exports = function settle(resolve, reject, response) {
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
 
 /**
- * Transform the data for a request or a response
+ * Transform the data for a requests or a response
  *
  * @param {Object|String} data The data to be transformed
- * @param {Array} headers The headers for the request or response
+ * @param {Array} headers The headers for the requests or response
  * @param {Array|Function} fns A single function or Array of functions
  * @returns {*} The resulting transformed data
  */
@@ -930,7 +930,7 @@ var defaults = {
   }],
 
   /**
-   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * A timeout in milliseconds to abort a requests. If set to 0 (default) a
    * timeout is not created.
    */
   timeout: 0,
@@ -1247,7 +1247,7 @@ module.exports = (
   utils.isStandardBrowserEnv() ?
 
   // Standard browser envs have full support of the APIs needed to test
-  // whether the request URL is of the same origin as current location.
+  // whether the requests URL is of the same origin as current location.
   (function standardBrowserEnv() {
     var msie = /(msie|trident)/i.test(navigator.userAgent);
     var urlParsingNode = document.createElement('a');
@@ -12666,7 +12666,7 @@ function getWidthOrHeight( elem, dimension, extra ) {
 			valueIsBorderBox,
 			styles,
 
-			// Provide the current computed size to request scroll gutter calculation (gh-3589)
+			// Provide the current computed size to requests scroll gutter calculation (gh-3589)
 			val
 		)
 	) + "px";
@@ -14915,7 +14915,7 @@ function ajaxExtend( target, src ) {
 	return target;
 }
 
-/* Handles responses to an ajax request:
+/* Handles responses to an ajax requests:
  * - finds the right dataType (mediates between content-type and expected dataType)
  * - returns the corresponding response
  */
@@ -14974,7 +14974,7 @@ function ajaxHandleResponses( s, jqXHR, responses ) {
 	}
 }
 
-/* Chain conversions given the request and the original response
+/* Chain conversions given the requests and the original response
  * Also sets the responseXXX fields on the jqXHR instance
  */
 function ajaxConvert( s, response, jqXHR, isSuccess ) {
@@ -15078,7 +15078,7 @@ jQuery.extend( {
 	// Counter for holding the number of active queries
 	active: 0,
 
-	// Last-Modified header cache for next request
+	// Last-Modified header cache for next requests
 	lastModified: {},
 	etag: {},
 
@@ -15292,7 +15292,7 @@ jQuery.extend( {
 					return this;
 				},
 
-				// Cancel the request
+				// Cancel the requests
 				abort: function( statusText ) {
 					var finalText = statusText || strAbort;
 					if ( transport ) {
@@ -15318,7 +15318,7 @@ jQuery.extend( {
 		// Extract dataTypes list
 		s.dataTypes = ( s.dataType || "*" ).toLowerCase().match( rnothtmlwhite ) || [ "" ];
 
-		// A cross-domain request is in order when the origin doesn't match the current origin.
+		// A cross-domain requests is in order when the origin doesn't match the current origin.
 		if ( s.crossDomain == null ) {
 			urlAnchor = document.createElement( "a" );
 
@@ -15349,7 +15349,7 @@ jQuery.extend( {
 		// Apply prefilters
 		inspectPrefiltersOrTransports( prefilters, s, options, jqXHR );
 
-		// If request was aborted inside a prefilter, stop there
+		// If requests was aborted inside a prefilter, stop there
 		if ( completed ) {
 			return jqXHR;
 		}
@@ -15366,7 +15366,7 @@ jQuery.extend( {
 		// Uppercase the type
 		s.type = s.type.toUpperCase();
 
-		// Determine if request has content
+		// Determine if requests has content
 		s.hasContent = !rnoContent.test( s.type );
 
 		// Save the URL in case we're toying with the If-Modified-Since
@@ -15462,7 +15462,7 @@ jQuery.extend( {
 				globalEventContext.trigger( "ajaxSend", [ jqXHR, s ] );
 			}
 
-			// If request was aborted inside ajaxSend, stop there
+			// If requests was aborted inside ajaxSend, stop there
 			if ( completed ) {
 				return jqXHR;
 			}
@@ -15781,7 +15781,7 @@ jQuery.ajaxTransport( function( options ) {
 				// X-Requested-With header
 				// For cross-domain requests, seeing as conditions for a preflight are
 				// akin to a jigsaw puzzle, we simply never set it to be sure.
-				// (it can always be set on a per-request basis or even using ajaxSetup)
+				// (it can always be set on a per-requests basis or even using ajaxSetup)
 				// For same-domain requests, won't change header if already provided.
 				if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
 					headers[ "X-Requested-With" ] = "XMLHttpRequest";
@@ -15869,7 +15869,7 @@ jQuery.ajaxTransport( function( options ) {
 
 				try {
 
-					// Do send the request (this may raise an exception)
+					// Do send the requests (this may raise an exception)
 					xhr.send( options.hasContent && options.data || null );
 				} catch ( e ) {
 
@@ -16146,7 +16146,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		type = "POST";
 	}
 
-	// If we have elements to modify, make the request
+	// If we have elements to modify, make the requests
 	if ( self.length > 0 ) {
 		jQuery.ajax( {
 			url: url,
@@ -16171,7 +16171,7 @@ jQuery.fn.load = function( url, params, callback ) {
 				// Otherwise use the full result
 				responseText );
 
-		// If the request succeeds, this function gets "data", "status", "jqXHR"
+		// If the requests succeeds, this function gets "data", "status", "jqXHR"
 		// but they are ignored because response was set above.
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
@@ -49120,7 +49120,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -49140,7 +49140,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 

@@ -1030,7 +1030,7 @@
                 done.push(i);
             } else if (!$(el).closest('html').length && !$.data(el, '_jqs_pending')) {
                 // element has been inserted and removed from the DOM
-                // If it was not yet inserted into the dom then the .data request
+                // If it was not yet inserted into the dom then the .data requests
                 // will return true.
                 // removing from the dom causes the data to be removed.
                 $.data(pending[i][0], '_jqs_pending', false);

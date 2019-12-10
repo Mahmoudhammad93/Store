@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class Update extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine if the user is authorized to make this requests.
      *
      * @return bool
      */
@@ -17,7 +17,7 @@ class Update extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Get the validation rules that apply to the requests.
      *
      * @return array
      */

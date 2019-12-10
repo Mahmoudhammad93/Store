@@ -14222,7 +14222,7 @@ function generate(scale, min, max, capacity) {
 	// Align first ticks on unit
 	first = +adapter.startOf(first, weekday ? 'day' : minor);
 
-	// Prevent browser from freezing in case user options request millions of milliseconds
+	// Prevent browser from freezing in case user options requests millions of milliseconds
 	if (adapter.diff(max, min, minor) > 100000 * stepSize) {
 		throw min + ' and ' + max + ' are too far apart with stepSize of ' + stepSize + ' ' + minor;
 	}

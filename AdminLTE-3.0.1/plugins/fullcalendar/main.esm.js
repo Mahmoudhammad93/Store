@@ -6767,7 +6767,7 @@ var Calendar = /** @class */ (function () {
         this.isRendering = true;
         this.renderComponent(needsFullRerender);
         this.isRendering = false;
-        // received a rerender request while rendering
+        // received a rerender requests while rendering
         if (this.needsRerender) {
             this.delayedRerender();
         }

@@ -3615,7 +3615,7 @@ S2.define('select2/data/ajax',[
 
         callback(results);
       }, function () {
-        // Attempt to detect if a request was aborted
+        // Attempt to detect if a requests was aborted
         // Only works if the transport exposes a status property
         if ('status' in $request &&
             ($request.status === 0 || $request.status === '0')) {

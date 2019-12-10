@@ -17,7 +17,7 @@ class CreateSupRequestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('supId');
             $table->string('phone');
-            $table->string('request');
+            $table->string('requests');
             $table->timestamps();
         });
     }

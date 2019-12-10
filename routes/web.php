@@ -94,6 +94,7 @@ Route::namespace('Admin')->prefix('backend')->middleware('auth')->group(function
 
     // Requests Routes
     Route::resource('requests', 'Requests');
+    Route::get('requests/requests/{id}/edit', 'Requests@edit');
 
 });
 

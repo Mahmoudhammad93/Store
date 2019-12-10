@@ -98,9 +98,9 @@
     }, true);
 
     // Show Form Request To Send Request
-    $(document).on('click', '#btn-request', function(e){
+    $(document).on('click', '#btn-requests', function(e){
         $('body').addClass('no-scroll');
-        $('.overlay.popup.request').addClass('popup-show');
+        $('.overlay.popup.requests').addClass('popup-show');
         return false;
     });
 
@@ -108,22 +108,22 @@
     $(document).on('click', '.title i.fa', function () {
         console.log('clicked');
         $('body').removeClass('no-scroll');
-        $('.overlay.popup.request').removeClass('popup-show');
+        $('.overlay.popup.requests').removeClass('popup-show');
     });
 
-    // Show Form Edit Request To Send Request
-    $(document).on('click', '#btn-req-edit', function(e){
-        $('body').addClass('no-scroll');
-        $('.overlay.popup.edit-request').addClass('popup-show');
-        return false;
-    });
-
-    // Close Form Edit Request btn
-    $(document).on('click', '.title i.fa', function () {
-        console.log('clicked');
-        $('body').removeClass('no-scroll');
-        $('.overlay.popup.edit-request').removeClass('popup-show');
-    });
+    // // Show Form Edit Request To Send Request
+    // $(document).on('click', '#btn-req-edit', function(e){
+    //     $('body').addClass('no-scroll');
+    //     $('.overlay.popup.edit-requests').addClass('popup-show');
+    //     return false;
+    // });
+    //
+    // // Close Form Edit Request btn
+    // $(document).on('click', '.title i.fa', function () {
+    //     console.log('clicked');
+    //     $('body').removeClass('no-scroll');
+    //     $('.overlay.popup.edit-requests').removeClass('popup-show');
+    // });
 </script>
 
 

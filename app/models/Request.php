@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Request extends Model
 {
     protected $table = "sup_requests";
-    protected $fillable = ['supId','phone','request'];
+    protected $fillable = ['supId','phone','requests'];
 
     public function user()
     {

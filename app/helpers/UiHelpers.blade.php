@@ -45,7 +45,7 @@
 
       foreach($errors as $error){
         echo "
-             <div class='alert alert-danger'><p class='invalid-feedback text-center' role='alert' style='color: red;'>
+             <div class='alert alert-danger' style='margin-top: 10px;'><p class='invalid-feedback text-center' role='alert' style='color: red;'>
               <strong>".$error."</strong>
              </p></div>
         ";
@@ -72,7 +72,7 @@
 
         foreach($errors as $error){
             echo "
-                 <div class='alert alert-danger'><p class='invalid-feedback text-center' role='alert' style='color: red;'>
+                 <div class='alert alert-danger' style='margin-top: 10px;'><p class='invalid-feedback text-center' role='alert' style='color: red;'>
                   <strong>".$error."</strong>
                  </p></div>
             ";

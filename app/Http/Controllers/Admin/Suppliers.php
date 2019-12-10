@@ -10,6 +10,7 @@ use App\models\SupplierStartBalance;
 use App\models\SupplierTypes;
 use App\Http\Requests\BackEnd\Supplier\Store as SupplierStore;
 use App\Http\Requests\BackEnd\Supplier\SupplierBalanceStore as SupplierBalanceStore;
+use Illuminate\Support\Facades\DB;
 
 class Suppliers extends BackEndController
 {
@@ -20,7 +21,6 @@ class Suppliers extends BackEndController
     public function store(SupplierStore $request)
     {
         $row = $this->model;
-
         if($row->create($request->toArray())){
             swal()->button('Close Me')->message('تم','تمت عملية الاضافة بنجاح','info');
          }else{
@@ -50,10 +50,17 @@ class Suppliers extends BackEndController
 
     public function profile($id)
     {
+
+        $row = $this->model;
         $supplier = Supplier::find($id);
+
         $requests = Request::all();
+
+        $rows = $row->orderBy('id','desc')->paginate(5);
+//        dd($rows);
         foreach ($requests as $request){
             $supId = $request->supId;
+            $request = $request->request;
         }
         $PageTitle = "suppliers";
         $profile = 'Profile';
@@ -61,7 +68,7 @@ class Suppliers extends BackEndController
         $headerLevelProcessTitle2 = $supplier['name'];
         $buttonsRoutsname = $modelViewName = $PageTitle;
 
-        return View('Admin.suppliers.profile',compact('supplier','requests','PageTitle','profile','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.suppliers.profile',compact('supplier','rows','requests','request','supId','PageTitle','profile','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
     }
 
     public function saveBalance(SupplierBalanceStore $request)

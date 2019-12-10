@@ -22,22 +22,22 @@ class SellInvoice extends BackEndController
       $rows = $this->model;
       $rows = $rows->where('invoice_type','=',1);
       if(isset( $filterData['page'] ) ){
-        unset($filterData['page']);  
+        unset($filterData['page']);
       }
       if(!empty($this->with())){
-       $rows = $rows->with($this->with());   
+       $rows = $rows->with($this->with());
       }
-      if(isset($filterData['datefrom']) && isset($filterData['dateto'])){      
+      if(isset($filterData['datefrom']) && isset($filterData['dateto'])){
       $rows = $rows->whereBetween('date',[$filterData['datefrom'], $filterData['dateto']]);
       }
-      if(isset($filterData['datefrom']) ){      
+      if(isset($filterData['datefrom']) ){
         $rows = $rows->where('date','>=',$filterData['datefrom']);
       }
-      if(isset($filterData['dateto']) ){      
+      if(isset($filterData['dateto']) ){
         $rows = $rows->where('date','<=',$filterData['dateto']);
       }
 
-      if( !isset($filterData['datefrom']) && !isset($filterData['dateto'])){      
+      if( !isset($filterData['datefrom']) && !isset($filterData['dateto'])){
         $rows = $rows->where('date','=',date('Y-m-d'));
       }
 
@@ -55,10 +55,10 @@ class SellInvoice extends BackEndController
         $rows = $this->model;
         $rows = $rows->where('invoice_type','=',1);
         if(isset( $filterData['page'] ) ){
-          unset($filterData['page']);  
+          unset($filterData['page']);
         }
         if(!empty($this->with())){
-         $rows = $rows->with($this->with());   
+         $rows = $rows->with($this->with());
         }
         $rows = $this->filter($rows,$filterData);
         $rows = $rows->orderBy('id','desc')->paginate(10);
@@ -70,23 +70,23 @@ class SellInvoice extends BackEndController
         $databind  = $this->append();
 
         return View('Admin.sellInvoice.index',compact('filterData','rows','databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-    
+
       }
 
     public function create()
-    {        
+    {
         $PageTitle = "Sell Invoices ( فواتير مبيعات )";
         $headerLevelProcessTitle1 = "Sell Invoices ( فواتير مبيعات )";
         $headerLevelProcessTitle2 = "All ( الكل )";
         $buttonsRoutsname = $modelViewName = "sellInvoice";
         $databind  = $this->append();
-        
+
         return View('Admin.'.$modelViewName.'.add',compact('databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
     }
 
     public function edit($id)
     {
-        
+
         $row = $this->model->findOrFail($id);
         $PageTitle = "Sell Invoices ( فواتير المبيعات )";
         $headerLevelProcessTitle1 = "Purchase Invoices ( فواتير المبيعات )";
@@ -108,7 +108,7 @@ class SellInvoice extends BackEndController
         $printOrder = "doPrint";
 
         return View('Admin.'.$modelViewName.'.print',compact('rows','printOrder','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-       
+
     }
 
     public function store(InvoiceStore $request)
@@ -116,11 +116,11 @@ class SellInvoice extends BackEndController
         $row = $this->model;
         if($request['code'] == ""){
           $request['code'] = rand();
-          
+
         }
         $request['invoice_type'] = 1;
         if($invoice = $row->create($request->toArray()) ){
-            // add to Product invoice and update store 
+            // add to Product invoice and update store
             for($i=0;$i <= $request['itrator'];$i++){
                 if(isset($request['product_id'.$i])){
                     $proInv = new InvoiceProducts();
@@ -142,7 +142,7 @@ class SellInvoice extends BackEndController
                     // End of update store
               }
             }
-                   // add to Product invoice and update store 
+                   // add to Product invoice and update store
           if($request['due'] == 0 ){
                    // add to box
                 $box = new Box();
@@ -154,7 +154,7 @@ class SellInvoice extends BackEndController
                 $box->desc = 'Sell Invoice ( فاتورة مبيعات فورية الدفع)';
                 $box->invoiceType  = 1;
                 $box->invoice_id  = $invoice->id;
-           
+
                 if(isset( $latestAction->totl_value ) ){
                     $box->totl_value = $latestAction->totl_value + $request['total_value'] ;
                   }else{
@@ -167,41 +167,41 @@ class SellInvoice extends BackEndController
                   // update supplier balance
                   $supplier_balance = new SupplierStartBalance();
                   $latestAction = SupplierStartBalance::where('supplier_id',$request->supplier_id)->orderBy('id','desc')->first();
-  
+
                   $supplier_balance->supplier_id = $request->supplier_id;
                   $supplier_balance->depet_value = $request->total_value;
                   $supplier_balance->payment_type = 1;
                   $supplier_balance->date = $request->date;
                   $supplier_balance->invoice_id = $invoice->id;
-                  
+
                   $supplier_balance->desc = 'Sell Invoice ( فاتورة مبيعات فورية الدفع )';
-                  
+
                   if(isset( $latestAction->total_balance ) ){
                       $supplier_balance->total_balance = $latestAction->total_balance ;
                     }else{
                       $supplier_balance->total_balance = 0 ;
                     }
-  
+
                   $supplier_balance->save();
                     // End of supplier balance
             }
-    
+
             if( $request['due'] == 0 ) {
-              swal()->button('Close Me')->message('تم',' تم اضافة الفاتورة بنجاح وتم اضافة المبلغ الي الخازنه مع اضافة بيانات الفاتورة الي حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info'); 
+              swal()->button('Close Me')->message('تم',' تم اضافة الفاتورة بنجاح وتم اضافة المبلغ الي الخازنه مع اضافة بيانات الفاتورة الي حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info');
             }
             if( $request['due'] == 1 ) {
-              swal()->button('Close Me')->message('تم',' تم اضافة الفاتورة بنجاح مع العلم ان الفاتورة لم تسدد بعد  ','info'); 
+              swal()->button('Close Me')->message('تم',' تم اضافة الفاتورة بنجاح مع العلم ان الفاتورة لم تسدد بعد  ','info');
             }
           }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
-         }    
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
+         }
         return redirect()->back();
-       
+
     }
 
     public function show($id)
     {
-        
+
       $row = Invoice::find($id);
 
       $PageTitle = "Sell Invoice ( فاتورة مبيعات )";
@@ -210,7 +210,7 @@ class SellInvoice extends BackEndController
       $buttonsRoutsname = $modelViewName = "sellInvoice";
 
       return View('Admin.sellInvoice.singleInvoice',compact('row','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-  
+
     }
 
     public function printSingleInvoice($id)
@@ -223,7 +223,7 @@ class SellInvoice extends BackEndController
       $buttonsRoutsname = $modelViewName = "sellInvoice";
       $printOrder = "doPrint";
       return View('Admin.sellInvoice.printSingleInvoice',compact('printOrder','row','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-  
+
     }
 
     public function destroy($id)
@@ -232,7 +232,7 @@ class SellInvoice extends BackEndController
         $oldTotalprice = $row->total_value;
         $olddue  = $row->due;
         // delete supplier balance
-      if($olddue == 0){  
+      if($olddue == 0){
       $supplier_balance = SupplierStartBalance::where('invoice_id','=',$id)->delete();
         // End of supplier balance
 
@@ -251,7 +251,7 @@ class SellInvoice extends BackEndController
         // End of add to box
   }
 
-          // delete from Product invoice and update store 
+          // delete from Product invoice and update store
           $lastQuantitesAndPrice = InvoiceProducts::where('invoice_id','=',$id)->get();
           InvoiceProducts::where('invoice_id','=',$id)->delete();
 
@@ -265,12 +265,12 @@ class SellInvoice extends BackEndController
 
                 // End of update store
 
-              // End delete from Product invoice and update store 
+              // End delete from Product invoice and update store
 
         if($row->delete()){
-           swal()->button('Close Me')->message('تم',' تم مسح الفاتورة بنجاح وتم تعديل المبلغ من الخازنه مع اضافة ثمن الفاتورة من حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info'); 
+           swal()->button('Close Me')->message('تم',' تم مسح الفاتورة بنجاح وتم تعديل المبلغ من الخازنه مع اضافة ثمن الفاتورة من حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }
@@ -284,7 +284,7 @@ class SellInvoice extends BackEndController
         $request['invoice_type'] = 1;
         if($row->update($request->toArray())){
 
-          // add to Product invoice and update store 
+          // add to Product invoice and update store
          $lastQuantitesAndPrice = InvoiceProducts::where('invoice_id','=',$id)->get();
           InvoiceProducts::where('invoice_id','=',$id)->delete();
 
@@ -313,13 +313,13 @@ class SellInvoice extends BackEndController
                            $checker = 1;
                         }
                       }
-                    
+
                     if($checker == 0){
 
                       $product = Product::find($request['product_id'.$i]);
                       $product->quantity   = $product->quantity - $request['quantity'.$i] ;
                       $product->sell_price = $request['payprice'.$i];
-                      $product->save();  
+                      $product->save();
 
                     }
 
@@ -333,50 +333,50 @@ class SellInvoice extends BackEndController
                 // End of update store
           }
         }
-               // add to Product invoice and update store 
+               // add to Product invoice and update store
 
         if( $request['due'] == 0 ) {
           if($olddue == 0 ){
                // add to box
             $box = Box::where('invoiceType','=',1)->where('invoice_id','=',$id)->first();
             $boxTheLatest = Box::orderBy('id','desc')->first();
-            
+
             $box->type = 1;
             $box->date = $request['date'];
             $box->desc = 'Sell Invoice ( فاتورة مبيعات فورية الدفع)';
             $box->invoiceType  = 1;
             $box->invoice_id   = $id;
 
-            $box->totl_value    = $box->totl_value + ( $request->total_value - $box->value ); 
+            $box->totl_value    = $box->totl_value + ( $request->total_value - $box->value );
             $boxTheLatest->totl_value = $boxTheLatest->totl_value + ($request->total_value - $box->value);
             $box->value = $request['total_value'];
-            
-            $box->save(); 
+
+            $box->save();
             $boxTheLatest->save();
               // End of add to box
 
              // update supplier balance
              $supplier_balance = SupplierStartBalance::where('invoice_id','=',$id)->first();
              $latestAction     = SupplierStartBalance::where('supplier_id',$request->supplier_id)->orderBy('id','desc')->first();
- 
+
              $supplier_balance->supplier_id  = $request->supplier_id;
              $supplier_balance->depet_value  = $request['total_value'];
              $supplier_balance->payment_type = 1;
              $supplier_balance->date = $request->date;
              $supplier_balance->desc = 'Sell Invoice (فاتورة مبيعات فورية الدفع)';
-             
+
              if(isset( $latestAction->total_balance ) ){
                  $supplier_balance->total_balance = $latestAction->total_balance ;
                }else{
                  $supplier_balance->total_balance = 0 ;
                }
- 
+
              $supplier_balance->save();
                // End of supplier balance
           }
 
         if($olddue == 1 ){
-                
+
               $box = new Box();
               $latestAction = Box::orderBy('id','desc')->first();
 
@@ -386,7 +386,7 @@ class SellInvoice extends BackEndController
               $box->desc = 'Sell Invoice (  فاتورة مبيعات فورية الدفع )';
               $box->invoiceType  = 1;
               $box->invoice_id  = $id;
-         
+
               if(isset( $latestAction->totl_value ) ){
                   $box->totl_value = $latestAction->totl_value + $request['total_value'] ;
                 }else{
@@ -398,7 +398,7 @@ class SellInvoice extends BackEndController
                 // update supplier balance
                 $supplier_balance = new SupplierStartBalance();
                 $latestAction     = SupplierStartBalance::where('supplier_id',$request->supplier_id)->orderBy('id','desc')->first();
-  
+
                 $supplier_balance->supplier_id  = $request->supplier_id;
                 $supplier_balance->depet_value  = $request['total_value'];
                 $supplier_balance->payment_type = 1;
@@ -411,15 +411,15 @@ class SellInvoice extends BackEndController
                   }else{
                     $supplier_balance->total_balance = 0 ;
                   }
-  
+
                 $supplier_balance->save();
 
              }
-               
-             swal()->button('Close Me')->message('تم',' تم تعديل بيانات الفاتورة بنجاح وتم تعديل المبلغ من الخازنه مع تعديل ثمن الفاتورة الي حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info'); 
-              
+
+             swal()->button('Close Me')->message('تم',' تم تعديل بيانات الفاتورة بنجاح وتم تعديل المبلغ من الخازنه مع تعديل ثمن الفاتورة الي حساب العميل وتم تحديث بيانات  الصنف في المخزن ','info');
+
               // End of add to box
-        } // end of $request['due'] == 0
+        } // end of $requests['due'] == 0
 
         if( $request['due'] == 1 ) {
           if($olddue == 0 ){
@@ -436,17 +436,17 @@ class SellInvoice extends BackEndController
                  }
                // End of add to box
 
-               // supplier 
+               // supplier
                $supplier_balance = SupplierStartBalance::where('invoice_id','=',$id)->delete();
                // End of supplier
-               
-             }              
-         
-         swal()->button('Close Me')->message('تم',' تم حفظ فاتورة المبيعات مع العلم انه لم يتم تسدد قيمتها بعد','info'); 
-       } // end of if request['due'] == 1
+
+             }
+
+         swal()->button('Close Me')->message('تم',' تم حفظ فاتورة المبيعات مع العلم انه لم يتم تسدد قيمتها بعد','info');
+       } // end of if requests['due'] == 1
 
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }

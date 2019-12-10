@@ -3672,7 +3672,7 @@ ZipEntries.prototype = {
             // Check if the content is a truncated zip or complete garbage.
             // A "LOCAL_FILE_HEADER" is not required at the beginning (auto
             // extractible zip for example) but it can give a good hint.
-            // If an ajax request was used without responseType, we will also
+            // If an ajax requests was used without responseType, we will also
             // get unreadable data.
             var isGarbage = !this.isSignature(0, sig.LOCAL_FILE_HEADER);
 
@@ -8372,7 +8372,7 @@ function inflateReset2(strm, windowBits) {
   if (!strm || !strm.state) { return Z_STREAM_ERROR; }
   state = strm.state;
 
-  /* extract wrap request from windowBits parameter */
+  /* extract wrap requests from windowBits parameter */
   if (windowBits < 0) {
     wrap = 0;
     windowBits = -windowBits;
