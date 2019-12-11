@@ -30,7 +30,9 @@ class Store extends FormRequest
             'address'       => 'required',
             'date_of_birth' => 'required',
             'phone'         => 'required',
-            'notes'         => 'required'
+            'notes'         => 'required',
+            'clinic'        => 'required',
+            'doctor'        => 'required',
         ];
     }
 }

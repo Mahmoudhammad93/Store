@@ -1,4 +1,4 @@
-@if( is_permited('groups','edit') == 1 ) 
+@if( is_permited('groups','edit') == 1 )
 @extends('admin.shared.master')
 @section('content')
   <!-- Modal Edit -->
@@ -11,10 +11,10 @@
               {{ csrf_field() }}
               {{ method_field('put') }}
               @include('admin.'.$buttonsRoutsname.'.components.formComponent')
-              </form>  
-                
+              </form>
+
                 <!-- /.box-footer -->
-              
+
             </div>
             <!-- /.box -->
         </div>

@@ -81,6 +81,14 @@ inputForm('Description ( تفاصيل )',['type' => 'text', 'class' => 'form-con
                   'name' => 'Patients ( المرضي ) ',
                   'menu' => 'patient'
               ],
+              [
+                  'name' => 'Doctors ( الاطباء ) ',
+                  'menu' => 'doctor'
+              ],
+              [
+                  'name' => 'Clinics ( العيادات ) ',
+                  'menu' => 'clinic'
+              ],
           ];
         ?>
         @foreach($allmenus as $men)

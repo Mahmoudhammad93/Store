@@ -39,7 +39,7 @@
                     <select class='form-control' id="category0" name = "category_id0" onchange="categoryProducts(0,this.value)" >
                     <option value="">-- Select Category ( القسم ) --</option>
                     @foreach($databind['categories'] as $cat)
-                        <option  value="{{ $cat->id }}"> {{ $cat->name }} </option> 
+                        <option  value="{{ $cat->id }}"> {{ $cat->name }} </option>
                         @endforeach
                     </select>
                 </div>
@@ -95,7 +95,7 @@
 
             <!-- <div class='form-group col-md-1'>
                 <div class='col-sm-12'>
-                    
+
                 </div>
             </div> -->
         </div>
@@ -107,8 +107,8 @@
 <div class='form-group col-md-3'>
     <div class='col-sm-12'>
       <select class="form-control" name="due">
-         <option  value="0"> تسديد الفاتورة </option>      
-         <option  value="1">  حفظ بدون تسديد </option>      
+         <option  value="0"> تسديد الفاتورة </option>
+         <option  value="1">  حفظ بدون تسديد </option>
       </select>
     </div>
 </div>
@@ -118,19 +118,19 @@
 <script>
   function countTotalPrice(itrator) {
 
-      var rowTotal = $('#totalePrice'+itrator).val();  
+      var rowTotal = $('#totalePrice'+itrator).val();
       var invoiceTotalPrice = $('#totale_price').val();
       invoiceTotalPrice = +invoiceTotalPrice - rowTotal;
-      $('#totale_price').val(invoiceTotalPrice); 
-      
+      $('#totale_price').val(invoiceTotalPrice);
+
       var quantity  = $('#quantity'+itrator).val();
       var payprice  = $('#payprice'+itrator).val();
       var total     = quantity * payprice;
-      $('#totalePrice'+itrator).val(total); 
+      $('#totalePrice'+itrator).val(total);
 
       invoiceTotalPrice = $('#totale_price').val();
       invoiceTotalPrice = +invoiceTotalPrice + total;
-      $('#totale_price').val(invoiceTotalPrice); 
+      $('#totale_price').val(invoiceTotalPrice);
 
   }
 
@@ -139,16 +139,16 @@
       itrator = +itrator + 1 ;
       var htmlOp = " <div id='product"+itrator+"' style=' margin-top: 10px;border: 1px solid #BFBFBF; background-color: white;box-shadow: 10px 10px 5px #aaaaaa;'> <div class='form-group col-md-12'> <label class='label-control' style='margin-left: 15px'> Code ( الكود ) </label> <div class='col-sm-12'> <input type='text' onchange='productInfoByCode("+itrator+")' id='code"+itrator+"' class='form-control' name='code"+itrator+"' placeholder='Code ( الكود )' /> </div> </div> <div class='form-group col-md-2'><div class='col-sm-12'> <select class='form-control' id='category"+itrator+"' name = 'category_id"+itrator+"' onchange='categoryProducts("+itrator+",this.value)' > <option value=''>-- Select Category ( القسم ) --</option> @foreach($databind['categories'] as $cat) <option  value='{{ $cat->id }}'> {{ $cat->name }} </option>  @endforeach </select>  </div> </div> <div class='form-group col-md-2'><div class='col-sm-12'><select class='form-control' onchange='productsInfo("+itrator+",this.value)' id='product_id"+itrator+"' name = 'product_id"+itrator+"'> @foreach($databind['products'] as $product) <option  value='{{ $product->id }}'> {{ $product->name }} </option> @endforeach </select></div></div><div class='form-group col-md-2'><div class='col-sm-12'><input onchange='countTotalPrice("+itrator+")' id='quantity"+itrator+"' type='number' step=any class='form-control' name='quantity"+itrator+"' placeholder=' ( الكمية ) ' /></div></div> <div class='form-group col-md-2'> <div class='col-sm-12'> <input id='unitdetails"+itrator+"' readonly='readonly' type='text' class='form-control' placeholder=' ( الوحدة ) ' /> </div> </div> <div class='form-group col-md-2'><div class='col-sm-12'><input type='number' step=any class='form-control' onchange='countTotalPrice("+itrator+")' id='payprice"+itrator+"' name='payprice"+itrator+"' placeholder=' ( سعر الشراء ) ' /></div></div><div class='form-group col-md-2'><div class='col-sm-12'><input type='number' step=any id='totalePrice"+itrator+"' readonly='readonly' class='form-control' name='total_price"+itrator+"' placeholder=' Total Price ( السعر الكلي ) ' /></div></div><div class='form-group col-md-1'><div class='col-sm-12'><button type='button' onclick='removeitemrow("+itrator+")' class='form-control btn btn-block btn-danger col-sm-3'><i class='fa fa-trash'></i></button><button type='button' onclick='addnewitem()' class='form-control btn btn-block btn-info col-sm-3'><i class='fa fa-plus'></i></button></div></div>";
       $('#AllProducts').append(htmlOp);
-      var itrator   = $('#itrator').val(itrator);  
+      var itrator   = $('#itrator').val(itrator);
   }
 
   function removeitemrow(itrator){
 
-    var rowTotal = $('#totalePrice'+itrator).val();     
+    var rowTotal = $('#totalePrice'+itrator).val();
       $('#product'+itrator).remove();
       var invoiceTotalPrice = $('#totale_price').val();
       invoiceTotalPrice = +invoiceTotalPrice - rowTotal;
-      $('#totale_price').val(invoiceTotalPrice); 
+      $('#totale_price').val(invoiceTotalPrice);
   }
 
   function categoryProducts(formProNum , catId){
@@ -169,7 +169,7 @@
 
   function productInfoByCode(formProNum){
       var code = $('#code'+formProNum).val();
-     
+
       $('#unitdetails'+formProNum).val("");
       $('#payprice'+formProNum).val("");
       $('#category'+formProNum).val("");
@@ -181,9 +181,9 @@
         var latcode = $('#code'+i).val();
         if(code == latcode){
           alert('هذا الصنف مضاف مسبقا') ; return ;
-       } 
+       }
      }
-    
+
      var csrfToken = '{{csrf_token()}}';
      $.ajax({
          url      : "{{route('getProductInfoByCode')}}",
@@ -198,11 +198,11 @@
                 $('#category'+formProNum).val(data.category_id);
                 data.catProducts.forEach(productsDisplayFunction.bind(null, formProNum)) ;
                 $('#product_id'+formProNum).val(data.id);
-                
+
             }else{
                 alert("هذا المنتج غير موجود ");
             }
-        } 
+        }
      });
   }
 
@@ -212,7 +212,7 @@
 //   })
 
 function productsDisplayFunction(formProNum,item){
-options = " <option value='"+item.id+"'> "+item.name+" </option> ";
+options = " <option value='"+item.id+"'> "+item.name+" </option> ";itrator
  $('#product_id'+formProNum).append(options);
 }
 
@@ -223,7 +223,7 @@ options = " <option value='"+item.id+"'> "+item.name+" </option> ";
       var latproduct = $('#product_id'+i).val();
       if(ProId == latproduct){
           alert('هذا الصنف مضاف مسبقا') ; return ;
-      } 
+      }
      }
      var csrfToken = '{{csrf_token()}}';
      $.ajax({

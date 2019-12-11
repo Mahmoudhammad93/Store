@@ -106,7 +106,13 @@
         <li class="{{ is_active('reservations') }}" ><a href="{{ route('reservations.index') }}"><i class="fa fa-calendar-check-o"></i> <span>Reservations ( الحجوزات ) </span></a></li>
         @endif
           @if( is_permited('patients','view') == 1 )
-              <li class="{{ is_active('patients') }}" ><a href="{{ route('patients.index') }}"><i class="fa fa-user-md"></i> <span>Patients ( المرضي ) </span></a></li>
+              <li class="{{ is_active('patients') }}" ><a href="{{ route('patients.index') }}"><i class="fa fa-frown-o"></i> <span>Patients ( المرضي ) </span></a></li>
+          @endif
+          @if( is_permited('doctors','view') == 1 )
+              <li class="{{ is_active('doctors') }}" ><a href="{{ route('doctors.index') }}"><i class="fa fa-user-md"></i> <span>Doctors ( الاطباء ) </span></a></li>
+          @endif
+          @if( is_permited('clinics','view') == 1 )
+              <li class="{{ is_active('clinics') }}" ><a href="{{ route('clinics.index') }}"><i class="fa fa-hospital-o"></i> <span>Clinics ( العيادات ) </span></a></li>
           @endif
       </ul>
       <!-- /.sidebar-menu -->

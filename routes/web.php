@@ -92,9 +92,17 @@ Route::namespace('Admin')->prefix('backend')->middleware('auth')->group(function
     Route::resource('patients', 'Patients');
     Route::post('patients/print','Patients@print')->name('patients.print');
 
+    // Doctors Routes
+    Route::resource('doctors', 'doctors');
+    Route::post('doctors/print','doctors@print')->name('doctors.print');
+
+    // Clinics Routes
+    Route::resource('clinics', 'Clinics');
+    Route::post('clinics/print','clinics@print')->name('clinics.print');
+
     // Requests Routes
     Route::resource('requests', 'Requests');
-    Route::get('requests/requests/{id}/edit', 'Requests@edit');
+    Route::post('requests/requests/{id}/Update', 'Requests@edit');
 
 });
 

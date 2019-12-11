@@ -1,4 +1,4 @@
-@if(is_permited('patient','view') == 1 )
+@if(is_permited('doctor','view') == 1 )
   @extends('admin.shared.master')
   @section('content')
   <!-- TABLE: LATEST ORDERS -->
@@ -9,6 +9,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Add {{ $buttonsRoutsname }} ( اضافة مريض )</h3>
             </div>
+
             <form method="POST" action="{{route($buttonsRoutsname.'.store')}}" id="insertForm" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 @include('admin.'.$buttonsRoutsname.'.components.formComponent')
@@ -44,9 +45,9 @@
             <div class="table-responsive">
             @if($rows->count() > 0)
               @php
-              $ths = ['Patient.No ( رقم المريض )' ,'Name ( الاسم )' , 'Gender ( الجنس )', 'Phone ( رقم الهاتف )','Date of birth (تاريخ الميلاد)','Notes ( ملاحظات )','Clinic ( العيادة )','Doctor ( الطبيب )','Options ( الخيارات )'];
+              $ths = ['Name ( أسم الطبيب )' ,'Phone ( التليفون )' , 'Email ( البريد الالكتروني )', 'Notes ( ملاحظات )','Options ( الخيارات )'];
               $tds = $rows;
-              $tdOnly = ['patient_no','name','gender','phone','date_of_birth', 'notes','clinic','doctor'];
+              $tdOnly = ['name','phone','email', 'note'];
               @endphp
               @php
               $Otipnsinputs  = [

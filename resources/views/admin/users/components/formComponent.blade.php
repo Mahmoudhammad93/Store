@@ -25,6 +25,7 @@ inputForm('Password ( كلمة السر )',['type' => 'password', 'class' => 'fo
 
 $input = "group_id";
 selectform("Group ( المجموعة ) ",[ 'class' => 'form-control','name' => $input ],isset($row->$input) ? $row->$input : '',$databind['groups'], isset($errors->toArray()[$input]) ? $errors->toArray()[$input] : [])
+
 @endphp
 
 </div>

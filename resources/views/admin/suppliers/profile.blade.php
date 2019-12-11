@@ -28,31 +28,6 @@
         </div>
     </div>
 
-    <div class="overlay popup edit-request">
-        <div class="request-form">
-            <div class="cart">
-                <div class="cart-header">
-                    <h5 class="title">
-                        {{$supplier['type'] == 1 ? 'Edit Offer': 'Edit Request'}}
-                        <i class="fa fa-close"></i>
-                    </h5>
-                </div>
-                <div class="cart-body">
-                    @php
-                        if ($profile){
-                    @endphp
-                    <form method="POST" action="{{route('requests.update',$supplier->id)}}" id="UpdateForm">
-                        {{ csrf_field() }}
-                        @include('admin.'.$buttonsRoutsname.'.components.formEditRequest')
-                    </form>
-                    @php
-                        }
-                    @endphp
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="row">
       <div class="col-md-3">
 
