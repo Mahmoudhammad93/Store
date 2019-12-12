@@ -25,7 +25,9 @@ inputFormIndex('Clinic Services (خدمات العيادة)',['type' => 'text', 
     </div>
 
 </div>
-<!-- /.box-body -->
-<div class="box-footer">
-    <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+<div class="col-md-12">
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+    </div>
 </div>

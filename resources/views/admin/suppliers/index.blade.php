@@ -1,4 +1,4 @@
-@if( is_permited('suppliers','view') == 1 )  
+@if( is_permited('suppliers','view') == 1 )
 @extends('admin.shared.master')
 @section('content')
 <!-- TABLE: LATEST ORDERS -->
@@ -6,11 +6,11 @@
   <!-- /.box-body -->
     <div class="box-header clearfix">
 
-      @if( is_permited('suppliers','add') == 1 )                            
+      @if( is_permited('suppliers','add') == 1 )
       <a href="{{ route($buttonsRoutsname.'.create') }}" class="btn btn-sm btn-info btn-flat pull-right" style="margin-left: 5px;"><i class="fa fa-plus"></i> Add {{ $buttonsRoutsname }} ( اضافة ) </a>
       @endif
 
-      @if( is_permited('suppliers','print') == 1 )                            
+      @if( is_permited('suppliers','print') == 1 )
       <form action="{{ route($buttonsRoutsname.'.print') }}" method="post" style="display: inline;">
         {{ csrf_field() }}
         @foreach($rows as $key => $value)
@@ -22,19 +22,19 @@
 
     </div>
     <!-- /.box-header -->
-    
+
     <!-- /.box-footer -->
     <div class="box-body">
-    
-    <!-- include table response -->      
+
+    <!-- include table response -->
             <!-- filteration model -->
-      @if( is_permited('suppliers','search') == 1 )       
+      @if( is_permited('suppliers','search') == 1 )
       @include("admin.".$buttonsRoutsname.".components.filterComponent",$filterData)
       @endif
              <!-- filteration model -->
 
              <!-- /.table-responsive -->
-      <div class="table-responsive">    
+      <div class="table-responsive">
         @if($rows->count() > 0)
 
         @php
@@ -60,11 +60,11 @@
         @endif
       </div>
       <!-- /.table-responsive -->
-      
+
     <!-- include table response -->
 
     </div>
-    
+
   </div>
   <!-- /.box -->
 

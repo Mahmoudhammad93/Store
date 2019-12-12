@@ -22,9 +22,11 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
 
 
 @endphp
-
-</div>
 <!-- /.box-body -->
-<div class="box-footer">
-    <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+    <div class="col-md-12">
+        <div class="box-footer">
+            <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+        </div>
+    </div>
 </div>
+

@@ -104,6 +104,9 @@ Route::namespace('Admin')->prefix('backend')->middleware('auth')->group(function
     Route::resource('requests', 'Requests');
     Route::post('requests/requests/{id}/Update', 'Requests@edit');
 
+    // Tasks Routes
+    Route::resource('tasks', 'Tasks');
+
 });
 
 // Pages Payment

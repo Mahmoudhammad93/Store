@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\BackEndController;
 use App\models\Group;
 use App\models\permissions;
 use App\Http\Requests\BackEnd\Group\Store as GroupStore;
+use App\Task;
+
 class Groups extends BackEndController
 {
     public function __construct(Group $model){
@@ -15,13 +17,13 @@ class Groups extends BackEndController
     public function store(GroupStore $request)
     {
         $row = $this->model;
-        
+
         if($newGroup = $row->create($request->toArray())){
 
-            // save permissions 
+            // save permissions
 
      if($request->itrator > 0){
-      
+
         for($i=1 ; $i <= $request->itrator ; $i++){
             $menu       = "menu".$i;
             $add        = "add".$i;
@@ -82,12 +84,12 @@ class Groups extends BackEndController
     }  // end if itrator
 
 
-            swal()->button('Close Me')->message('تم','تم اضافة المجموعة بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تم اضافة المجموعة بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
-       
+
     }
 
     public function show($id)
@@ -98,14 +100,14 @@ class Groups extends BackEndController
 
     public function update(GroupStore $request,$id)
     {
-        $row = $this->model->findOrFail($id);        
+        $row = $this->model->findOrFail($id);
         if($row->update($request->toArray())){
            permissions::where('group_id','=',$row->id)->delete();
 
-                    // save permissions 
+                    // save permissions
 
      if($request->itrator > 0){
-      
+
         for($i=1 ; $i <= $request->itrator ; $i++){
             $menu       = "menu".$i;
             $add        = "add".$i;
@@ -166,9 +168,9 @@ class Groups extends BackEndController
     }  // end if itrator
 
 
-            swal()->button('Close Me')->message('تم','تمت عملية التعديل بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تمت عملية التعديل بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }
@@ -186,11 +188,11 @@ class Groups extends BackEndController
     {
         $row = $this->model->find($id);
         permissions::where('group_id','=',$row->id)->delete();
-        
+
         if($row->delete()){
-            swal()->button('Close Me')->message('تم','تمت عملية مسح البيانات بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تمت عملية مسح البيانات بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }

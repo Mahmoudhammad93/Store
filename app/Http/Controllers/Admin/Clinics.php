@@ -27,7 +27,6 @@ class Clinics extends BackEndController
     public function store(Request $request)
     {
         $row = $this->model;
-//        dd($request->c_name);
             if ($row->create($request->toArray())) {
                 swal()->button('Close Me')->message('تم', 'تمت عملية الاضافة بنجاح', 'info');
             } else {

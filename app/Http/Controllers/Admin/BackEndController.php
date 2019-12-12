@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use Softon\SweetAlert\Facades\SWAL; 
+use App\Task;
+use Softon\SweetAlert\Facades\SWAL;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class BackEndController extends Controller
 {
     protected $model ;
-    
+
     public function __construct($model){
         $this->model = $model;
     }
@@ -16,19 +17,20 @@ class BackEndController extends Controller
     public function index(Request $request)
     {
         $filterData = $request->all();
-        
+//        $tasks = Task::all();
+
         $rows = $this->model;
         if(!empty($this->with())){
-         $rows = $rows->with($this->with());   
+         $rows = $rows->with($this->with());
         }
         if(isset( $filterData['page'] ) ){
-           unset($filterData['page']);  
+           unset($filterData['page']);
         }
 
         $rows = $this->filter($rows,$filterData);
         $rows = $rows->orderBy('id','desc')->paginate(10);
         $PageTitle = $this->getpluralModelname();
-        
+
         $headerLevelProcessTitle1 = $this->getpluralModelname();
         $headerLevelProcessTitle2 = "All";
         $buttonsRoutsname = $modelViewName = $this->getModelViewName();
@@ -38,19 +40,19 @@ class BackEndController extends Controller
     }
 
     public function create()
-    {        
+    {
         $PageTitle = $this->getpluralModelname();
         $headerLevelProcessTitle1 = $this->getpluralModelname();
         $headerLevelProcessTitle2 = "Add";
         $buttonsRoutsname = $modelViewName = $this->getModelViewName();
         $databind  = $this->append();
-        
+
         return View('Admin.'.$modelViewName.'.add',compact('databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
     }
 
     public function edit($id)
     {
-        
+
         $row = $this->model->findOrFail($id);
         $PageTitle = $this->getpluralModelname();
         $headerLevelProcessTitle1 = $this->getpluralModelname();
@@ -72,17 +74,17 @@ class BackEndController extends Controller
         $printOrder = "doPrint";
 
         return View('Admin.'.$modelViewName.'.print',compact('rows','printOrder','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
-       
+
     }
 
     public function destroy($id)
     {
         $row = $this->model->find($id);
-        
+
         if($row->delete()){
-            swal()->button('Close Me')->message('تم','تمت عملية مسح البيانات بنجاح','info'); 
+            swal()->button('Close Me')->message('تم','تمت عملية مسح البيانات بنجاح','info');
          }else{
-            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info'); 
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
         return redirect()->back();
     }
@@ -96,7 +98,7 @@ class BackEndController extends Controller
     }
 
     protected function getpluralModelname(){
-        return str_plural(class_basename($this->model)); 
+        return str_plural(class_basename($this->model));
     }
 
     protected function with(){
@@ -107,5 +109,5 @@ class BackEndController extends Controller
         return [];
     }
 
-    
+
 }

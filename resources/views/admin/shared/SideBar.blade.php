@@ -114,6 +114,9 @@
           @if( is_permited('clinics','view') == 1 )
               <li class="{{ is_active('clinics') }}" ><a href="{{ route('clinics.index') }}"><i class="fa fa-hospital-o"></i> <span>Clinics ( العيادات ) </span></a></li>
           @endif
+          @if( is_permited('tasks','view') == 1 )
+              <li class="{{ is_active('tasks') }}" ><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i> <span>Tasks ( المهمات ) </span></a></li>
+          @endif
       </ul>
       <!-- /.sidebar-menu -->
     </section>

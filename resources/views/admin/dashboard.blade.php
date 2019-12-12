@@ -150,7 +150,23 @@
     </div>
 </div>
 
-<div class="col-lg-12 col-xs-12">
+    <div class="col-lg-12 col-xs-12">
+        <!-- small box -->
+        <div class="small-box bg-maroon">
+            <div class="inner text-center">
+                <h3>{{ round($tasks->count()) }}</h3>
+
+                <p> Tasks ( المهمات )</p>
+
+            </div>
+            <div class="icon">
+                <i class="fa fa-tasks"></i>
+            </div>
+            <a href="{{ route('tasks.index') }}" class="small-box-footer">More info </a>
+        </div>
+    </div>
+
+<div class="col-lg-6 col-xs-12">
     <!-- small box -->
     <div class="small-box bg-green">
     <div class="inner text-center">
@@ -166,7 +182,7 @@
     </div>
 </div>
 
-<div class="col-lg-12 col-xs-12">
+<div class="col-lg-6 col-xs-12">
     <!-- small box -->
     <div class="small-box bg-lime">
     <div class="inner text-center">

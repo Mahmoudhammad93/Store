@@ -11,6 +11,8 @@ use App\models\Supplier;
 use App\models\Product;
 use App\models\Invoice;
 use App\models\Box;
+use App\Task;
+
 class Dashboard extends Controller
 {
     public function index()
@@ -21,6 +23,7 @@ class Dashboard extends Controller
         $patients  = Patient::all();
         $reservations = Reservation::all();
         $requests = Request::all();
+        $tasks = Task::all();
         $totalGard = 0;
         $totalAlert = 0;
         foreach($products as $progard){
@@ -44,7 +47,7 @@ class Dashboard extends Controller
         $headerLevelProcessTitle2 = "Statidtics ( احصائيات )";
         $buttonsRoutsname = $modelViewName = "dashboard";
 
-        return View('Admin.dashboard',compact('totalAlert','totalGard','todayTotalGain','box','sellInvoice','requests','purchaseInvoice','products','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.dashboard',compact('totalAlert','totalGard','tasks','todayTotalGain','box','sellInvoice','requests','purchaseInvoice','products','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
 
     }
 }

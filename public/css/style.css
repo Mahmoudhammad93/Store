@@ -140,7 +140,7 @@ div#AllProducts > div{
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-.request-form{
+.popup-form {
     width: 50%;
     margin: auto;
     background-color: #ffff;
@@ -149,17 +149,17 @@ div#AllProducts > div{
     border-radius: 5px;
 }
 
-.request-form .cart-header{
+.popup-form .cart-header{
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
 
-.request-form .cart-header .title{
+.popup-form .cart-header .title{
     display: flex;
     justify-content: space-between;
 }
 
-.request-form .cart-header .title i.fa{
+.popup-form .cart-header .title i.fa{
     background-color: #dadada;
     border-radius: 20px;
     width: 18px;
@@ -170,16 +170,16 @@ div#AllProducts > div{
     cursor: pointer;
 }
 
-.request-form .cart-header .title,
-.request-form .cart-footer{
+.popup-form .cart-header .title,
+.popup-form .cart-footer{
     font-weight: bold;
 }
 
-.request-form .cart-body{
+.popup-form .cart-body{
     padding: 2rem;
 }
 
-.request-form .cart-footer{
+.popup-form .cart-footer{
     padding: 10px;
     border-top: 1px solid #ddd;
 }
@@ -346,6 +346,20 @@ input.ph-req{
 }
 
 /*--------- /end requests form popup ----------*/
+
+/*----- Start Tasks Page ----------*/
+.fc-day.fc-widget-content{
+    -webkit-transition: all .2s ease-in-out;
+}
+
+.fc-day.fc-widget-content.fc-today{
+    box-shadow: inset 0 0 4px #8e8e8ed4;
+}
+.fc-day.fc-widget-content:hover{
+    box-shadow: 0 0 4px #8e8e8ed4;
+    cursor: pointer;
+}
+/*----- /end tasks page ----------*/
 
 @keyframes heart{
     0%

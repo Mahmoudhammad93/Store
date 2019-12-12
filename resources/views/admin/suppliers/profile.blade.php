@@ -3,7 +3,7 @@
 
 <section class="content">
     <div class="overlay popup request">
-        <div class="request-form">
+        <div class="popup-form request-form">
             <div class="cart">
                 <div class="cart-header">
                     <h5 class="title">

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BackEndController;
 use App\models\Invoice;
@@ -20,6 +21,7 @@ class PurchaseInvoice extends BackEndController
     public function index(Request $request)
     {
         $filterData = $request->all();
+        $tasks = Task::all();
 
         $rows = $this->model;
         $rows = $rows->where('invoice_type','=',0);
@@ -38,7 +40,7 @@ class PurchaseInvoice extends BackEndController
         $buttonsRoutsname = $modelViewName = "purchaseInvoice";
         $databind  = $this->append();
 
-        return View('Admin.purchaseInvoice.index',compact('filterData','rows','databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.purchaseInvoice.index',compact('filterData','tasks','rows','databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
 
       }
 

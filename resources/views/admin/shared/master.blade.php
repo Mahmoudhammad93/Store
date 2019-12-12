@@ -11,6 +11,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<meta name="_token" content="{{csrf_token()}}" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
   <!-- Font Awesome -->
@@ -81,13 +82,20 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 
-
+    <script src='{{ asset('js/moment.min.js') }}'></script>
+    <script src='{{ asset('js/fullcalendar.min.js') }}'></script>
+    <script>
+        $('.date').datepicker({
+            autoclose: true,
+            dateFormat: "yy-mm-dd"
+        });
+    </script>
 <script src="{{ asset('dist/js/app.min.js') }}"></script>
     <script src="{{ url('js/sweetalert.js') }}"></script>
     @include('sweetalert::view')
     @yield('ajax')
-<script type="text/javascript">
 
+<script type="text/javascript">
     window.addEventListener('keydown', function(e) {
         if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
             if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
@@ -108,22 +116,9 @@
     $(document).on('click', '.title i.fa', function () {
         console.log('clicked');
         $('body').removeClass('no-scroll');
-        $('.overlay.popup.request').removeClass('popup-show');
+        $('.overlay.popup').removeClass('popup-show');
     });
 
-    // // Show Form Edit Request To Send Request
-    // $(document).on('click', '#btn-req-edit', function(e){
-    //     $('body').addClass('no-scroll');
-    //     $('.overlay.popup.edit-requests').addClass('popup-show');
-    //     return false;
-    // });
-    //
-    // // Close Form Edit Request btn
-    // $(document).on('click', '.title i.fa', function () {
-    //     console.log('clicked');
-    //     $('body').removeClass('no-scroll');
-    //     $('.overlay.popup.edit-requests').removeClass('popup-show');
-    // });
 </script>
 
 

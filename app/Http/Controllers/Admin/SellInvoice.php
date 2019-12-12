@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BackEndController;
 use App\models\Invoice;
@@ -43,11 +44,12 @@ class SellInvoice extends BackEndController
 
       $rows = $rows->orderBy('id','desc')->get();
 
+      $tasks = Task::all();
       $PageTitle = "Total Gain ( صافي الارباح )";
       $headerLevelProcessTitle1 = "Total Gain ( صافي الارباح )";
       $headerLevelProcessTitle2 = "All ( الكل )";
       $buttonsRoutsname = $modelViewName = "totalgainindex";
-      return View('admin.sellInvoice.totalgaininperiod',compact('filterData','buttonsRoutsname','rows','PageTitle','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+      return View('admin.sellInvoice.totalgaininperiod',compact('filterData','buttonsRoutsname','tasks','rows','PageTitle','headerLevelProcessTitle1','headerLevelProcessTitle2'));
     }
     public function index(Request $request)
     {
@@ -63,13 +65,14 @@ class SellInvoice extends BackEndController
         $rows = $this->filter($rows,$filterData);
         $rows = $rows->orderBy('id','desc')->paginate(10);
 
+        $tasks = Task::all();
         $PageTitle = "Sell Invoices ( فواتير مبيعات )";
         $headerLevelProcessTitle1 = "Sell Invoices ( فواتير مبيعات )";
         $headerLevelProcessTitle2 = "All ( الكل )";
         $buttonsRoutsname = $modelViewName = "sellInvoice";
         $databind  = $this->append();
 
-        return View('Admin.sellInvoice.index',compact('filterData','rows','databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.sellInvoice.index',compact('filterData','tasks','rows','databind','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
 
       }
 

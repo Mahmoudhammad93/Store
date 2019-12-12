@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2019 at 09:29 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Dec 12, 2019 at 03:49 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,7 +63,17 @@ INSERT INTO `boxes` (`id`, `type`, `value`, `date`, `desc`, `invoiceType`, `invo
 (19, '0', '999990100000', '2019-12-07', 'nothing', NULL, NULL, '-178245.41662597656', '2019-12-07 15:04:59', '2019-12-07 15:04:59'),
 (20, '1', '12', '2019-12-01', 'smdla', NULL, NULL, '-178233.41662597656', '2019-12-07 15:05:49', '2019-12-07 15:05:49'),
 (21, '0', '13', '2019-12-07', 's', NULL, NULL, '-178246.41662597656', '2019-12-07 15:10:41', '2019-12-07 15:10:41'),
-(22, '1', '1', '2019-12-07', 'lk', NULL, NULL, '-178245.41662597656', '2019-12-07 15:11:00', '2019-12-07 15:11:00');
+(22, '1', '1', '2019-12-07', 'lk', NULL, NULL, '-178245.41662597656', '2019-12-07 15:11:00', '2019-12-07 15:11:00'),
+(23, '0', '800', '2019-12-09', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع)', '1', '9', '-179045.41662597656', '2019-12-09 10:37:46', '2019-12-09 10:37:46'),
+(24, '1', '2000154965', '2019-12-09', 'test', NULL, NULL, '1999975919.583374', '2019-12-09 10:39:09', '2019-12-09 10:39:09'),
+(25, '0', '600', '2019-12-10', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع)', '1', '10', '1999975319.583374', '2019-12-10 05:42:49', '2019-12-10 05:42:49'),
+(26, '0', '4627', '2019-12-10', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع)', '1', '11', '1999970692.583374', '2019-12-10 05:43:11', '2019-12-10 05:43:11'),
+(27, '0', '1400', '2019-12-10', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع)', '1', '13', '1999969292.583374', '2019-12-10 05:44:07', '2019-12-10 05:44:07'),
+(28, '0', '1200', '2019-12-10', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع)', '1', '14', '1999968092.583374', '2019-12-10 05:44:46', '2019-12-10 12:52:18'),
+(29, '0', '57', '2019-12-10', 'sdkls;ld', NULL, NULL, '1999968435.583374', '2019-12-10 08:05:01', '2019-12-10 08:05:01'),
+(30, '0', '635420', '2019-12-10', 'sdsdsdsdsdsd', NULL, NULL, '1999333015.583374', '2019-12-10 08:05:15', '2019-12-10 08:05:15'),
+(31, '1', '8656312', '2019-12-10', 'sdskldksd', NULL, NULL, '2007989327.583374', '2019-12-10 08:05:29', '2019-12-10 08:05:29'),
+(32, '1', '5468798', '2019-12-10', 'dlkfjdkjfdjfkdf', NULL, NULL, '2013457725.583374', '2019-12-10 08:05:45', '2019-12-10 12:52:18');
 
 -- --------------------------------------------------------
 
@@ -110,6 +120,58 @@ INSERT INTO `categories` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (2, 'lab', '2019-11-22 11:20:36', '2019-11-22 11:20:36'),
 (3, 'doc', '2019-11-22 11:20:46', '2019-11-22 11:20:46'),
 (4, 'قطع غيار', '2019-11-23 19:32:10', '2019-11-23 19:32:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clinics`
+--
+
+CREATE TABLE `clinics` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `c_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `c_services` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `c_doctor` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clinics`
+--
+
+INSERT INTO `clinics` (`id`, `c_name`, `c_services`, `c_doctor`, `created_at`, `updated_at`) VALUES
+(2, 'dsdsdsd', 'sdsdsw', 'waerfwedddddddddddddddddddd', '2019-12-11 10:37:41', '2019-12-11 10:37:41'),
+(3, 'الباطنه', 'كشف , استشارة', 'محمود حمدي حماد', '2019-12-11 10:39:34', '2019-12-11 10:39:34'),
+(4, 'الباطنه', 'كشف , استشارة', 'محمود حمدي حماد', '2019-12-11 12:37:49', '2019-12-11 12:37:49'),
+(5, 'قلب', 'كشف , استشارة', 'محمود حمدي حماد', '2019-12-12 05:16:59', '2019-12-12 05:16:59'),
+(6, 'الباطنه', 'كشف , استشارة', 'Yoshio Pollard', '2019-12-12 05:25:17', '2019-12-12 05:25:17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `doctors`
+--
+
+CREATE TABLE `doctors` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `specialty` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`id`, `name`, `phone`, `email`, `specialty`, `note`, `created_at`, `updated_at`) VALUES
+(2, 'Yoshio Pollard', '01111893717', 'byqebygonu@mailinator.com', 'Ut tempor velit mai', 'Esse provident dolo', '2019-12-11 09:36:58', '2019-12-11 09:44:31'),
+(3, 'Mariko Ortiz', '01004460433', 'owner@owner.com', 'bskdjbjsbdjsedjsd', 'sdsdsds', '2019-12-11 11:13:34', '2019-12-11 11:13:34'),
+(4, 'محمود حمدي حماد', '01004460433', 'mahmoudhammad423@gmail.com', 'باطنه', 'اخصائي', '2019-12-11 12:37:28', '2019-12-11 12:37:28');
 
 -- --------------------------------------------------------
 
@@ -163,7 +225,13 @@ INSERT INTO `invoices` (`id`, `code`, `date`, `invoice_type`, `total_value`, `to
 (5, '534817', '2019-11-21', '0', '8097.25', '0', '0', '4', '2019-11-21 19:33:28', '2019-11-21 19:33:28'),
 (6, '1792851208', '2019-11-22', '1', '45030', '10306.5', '0', '3', '2019-11-22 11:30:23', '2019-11-22 11:30:23'),
 (7, '534817', '2019-11-11', '0', '47', '0', '0', '4', '2019-11-23 15:47:21', '2019-11-23 15:47:21'),
-(8, '546687', '2019-11-13', '0', '1000', '0', '0', '5', '2019-11-23 19:36:28', '2019-11-23 19:36:28');
+(8, '546687', '2019-11-13', '0', '1000', '0', '0', '5', '2019-11-23 19:36:28', '2019-11-23 19:36:28'),
+(9, '56465', '2019-12-09', '0', '800', '0', '0', '5', '2019-12-09 10:37:46', '2019-12-09 10:37:46'),
+(10, '534817', '2019-12-10', '0', '600', '0', '0', '5', '2019-12-10 05:42:49', '2019-12-10 05:42:49'),
+(11, '202020', '2019-12-10', '0', '4627', '0', '0', '4', '2019-12-10 05:43:11', '2019-12-10 05:43:11'),
+(12, '990741', '2019-12-10', '0', '3470.25', '0', '1', '4', '2019-12-10 05:43:44', '2019-12-10 05:43:44'),
+(13, '990741', '2019-12-10', '0', '1400', '0', '0', '4', '2019-12-10 05:44:07', '2019-12-10 05:44:07'),
+(14, '990741', '2019-12-10', '0', '1200', '0', '0', '4', '2019-12-10 05:44:45', '2019-12-10 12:52:17');
 
 -- --------------------------------------------------------
 
@@ -200,7 +268,13 @@ INSERT INTO `invoice_product` (`id`, `invoice_id`, `product_id`, `quantity`, `se
 (56, '6', '1', '30', '1500', '1156.75', '45000', '10297.5', '2019-11-22 11:30:23', '2019-11-22 11:30:23'),
 (57, '6', '4', '3', '10', '7', '30', '9', '2019-11-22 11:30:23', '2019-11-22 11:30:23'),
 (58, '7', '2', '3', '0', '15.666666666666666', '47', '0', '2019-11-23 15:47:21', '2019-11-23 15:47:21'),
-(59, '8', '5', '5', '0', '200', '1000', '0', '2019-11-23 19:36:28', '2019-11-23 19:36:28');
+(59, '8', '5', '5', '0', '200', '1000', '0', '2019-11-23 19:36:28', '2019-11-23 19:36:28'),
+(60, '9', '5', '4', '0', '200', '800', '0', '2019-12-09 10:37:46', '2019-12-09 10:37:46'),
+(61, '10', '5', '3', '0', '200', '600', '0', '2019-12-10 05:42:49', '2019-12-10 05:42:49'),
+(62, '11', '1', '4', '0', '1156.75', '4627', '0', '2019-12-10 05:43:11', '2019-12-10 05:43:11'),
+(63, '12', '1', '3', '0', '1156.75', '3470.25', '0', '2019-12-10 05:43:44', '2019-12-10 05:43:44'),
+(64, '13', '5', '7', '0', '200', '1400', '0', '2019-12-10 05:44:07', '2019-12-10 05:44:07'),
+(66, '14', '5', '6', '0', '200', '1200', '0', '2019-12-10 12:52:18', '2019-12-10 12:52:18');
 
 -- --------------------------------------------------------
 
@@ -238,7 +312,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (89, '2019_09_17_114544_create_units_table', 3),
 (90, '2019_10_22_203712_create_permissions_table', 4),
 (91, '2019_12_02_114554_create_reservations_table', 5),
-(92, '2019_12_04_104706_create_patients_table', 5);
+(92, '2019_12_04_104706_create_patients_table', 5),
+(96, '2019_12_08_114324_create_sup_requests_table', 6),
+(98, '2019_12_11_100630_create_doctors_table', 7),
+(99, '2019_12_11_115753_create_clinics_table', 8),
+(100, '2019_12_11_124358_add_clinic_doctor_to_patients', 9),
+(101, '2019_12_12_081848_create_tasks_table', 10);
 
 -- --------------------------------------------------------
 
@@ -313,15 +392,21 @@ CREATE TABLE `patients` (
   `date_of_birth` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notes` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `clinic` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `doctor` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `patients`
 --
 
-INSERT INTO `patients` (`id`, `patient_no`, `name`, `gender`, `address`, `phone`, `date_of_birth`, `notes`, `created_at`, `updated_at`) VALUES
-(2, '19', 'Dara Church', 'Esse quae fugiat com', 'Nisi sit consequatu', '91', '1976-04-13', 'Sed id aliquam quisq', '2019-12-06 11:37:46', '2019-12-06 11:37:46');
+INSERT INTO `patients` (`id`, `patient_no`, `name`, `gender`, `address`, `phone`, `date_of_birth`, `notes`, `created_at`, `updated_at`, `clinic`, `doctor`) VALUES
+(2, '19', 'Dara Church', 'Esse quae fugiat com', 'Nisi sit consequatu', '91', '1976-04-13', 'Sed id aliquam quisq', '2019-12-06 11:37:46', '2019-12-06 11:37:46', '', ''),
+(3, '2659', 'Saeeed', 'male', 'Helwan', '01004460433', '2019-12-11', 'Aut quasi atque non', '2019-12-11 11:38:26', '2019-12-11 11:38:26', '3', '2'),
+(4, '2000', 'Yasser', 'male', 'smdlskmdls', '01004460433', '2019-12-11', 'Dolore ducimus sit', '2019-12-11 12:08:11', '2019-12-11 12:08:11', '3', 'Mariko Ortiz'),
+(5, '13', 'Mary Oneill', 'Adipisci aut ea sapi', 'Nisi et doloremque n', '35', '1974-08-13', 'Quibusdam enim quos', '2019-12-11 12:08:48', '2019-12-11 12:08:48', 'الباطنه', 'Mariko Ortiz'),
+(6, '10000', 'سيد محمد مسعد', 'ذكر', 'الصف', '01004460433', '2019-12-11', 'استقبال', '2019-12-11 12:39:06', '2019-12-11 12:39:06', 'الباطنه', 'محمود حمدي حماد');
 
 -- --------------------------------------------------------
 
@@ -333,7 +418,7 @@ CREATE TABLE `payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `student_fullname` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `offer` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `amount` text COLLATE utf8mb4_unicode_ci,
+  `amount` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -375,21 +460,28 @@ INSERT INTO `permissions` (`id`, `group_id`, `menu`, `view`, `add`, `edit`, `del
 (635, '7', 'totalgainindex', '1', '1', '1', '1', '1', '1', '2019-10-23 00:39:18', '2019-10-23 00:39:18'),
 (636, '7', 'boxes', '1', '1', '1', '1', '1', '1', '2019-10-23 00:39:18', '2019-10-23 00:39:18'),
 (637, '7', 'otherinvoices', '1', '1', '1', '1', '1', '1', '2019-10-23 00:39:19', '2019-10-23 00:39:19'),
-(668, '1', 'dashboard', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(669, '1', 'groups', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(670, '1', 'users', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(671, '1', 'suppliers', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(672, '1', 'categories', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(673, '1', 'units', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(674, '1', 'products', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(675, '1', 'PurchaseInvoice', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(676, '1', 'sellInvoice', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(677, '1', 'totalgainindex', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(678, '1', 'boxes', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(679, '1', 'otherinvoices', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(680, '1', 'reservations', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(681, '1', 'patient', '1', '1', '1', '1', '1', '1', '2019-12-06 12:45:06', '2019-12-06 12:45:06'),
-(682, '1', 'patients', '1', '1', '1', '1', '1', '1', '2019-12-06 01:07:18', '2019-12-06 08:09:16');
+(703, '1', 'tasks', '1', '1', '1', '1', '1', '1', '2019-12-12 01:18:30', '2019-12-12 01:11:16'),
+(704, '1', 'dashboard', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(705, '1', 'groups', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(706, '1', 'users', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(707, '1', 'suppliers', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(708, '1', 'categories', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(709, '1', 'units', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(710, '1', 'products', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(711, '1', 'PurchaseInvoice', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(712, '1', 'sellInvoice', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(713, '1', 'totalgainindex', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(714, '1', 'boxes', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(715, '1', 'otherinvoices', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(716, '1', 'reservations', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(717, '1', 'patient', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(718, '1', 'doctor', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(719, '1', 'clinic', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(720, '1', 'tasks', '1', '1', '1', '1', '1', '1', '2019-12-12 10:01:43', '2019-12-12 10:01:43'),
+(721, 'patients', '1', '1', '1', '1', '1', '1', '1', '2019-12-12 01:18:30', '2019-12-12 01:11:16'),
+(722, 'clinics', '1', '1', '1', '1', '1', '1', '1', '2019-12-12 01:18:30', '2019-12-12 01:11:16'),
+(723, '1', 'patients', '1', '1', '1', '1', '1', '1', '2019-12-12 00:16:25', NULL),
+(724, '1', 'clinics', '1', '1', '1', '1', '1', '1', '2019-12-12 00:16:25', NULL);
 
 -- --------------------------------------------------------
 
@@ -418,11 +510,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `code`, `name`, `category_id`, `unit_id`, `desc`, `sell_price`, `pay_price`, `expire_date`, `quantity`, `alert_quantity`, `created_at`, `updated_at`) VALUES
-(1, '1419449488', 'اتش تي سي 2017', '1', '1', 'اي حاجه', '1156.75', '1500', '2019-11-21', '3', '5', '2019-09-22 10:20:58', '2019-11-22 11:30:23'),
+(1, '1419449488', 'اتش تي سي 2017', '1', '1', 'اي حاجه', '1156.75', '1500', '2019-11-21', '10', '5', '2019-09-22 10:20:58', '2019-12-10 05:43:44'),
 (2, '887308514', 'جاي 5', '1', '1', 'اي حاجه', '15.666666666666666', '20', '2019-09-23', '17', '5', '2019-09-23 11:21:11', '2019-11-23 15:47:21'),
 (3, '2003578141', 'بوكسر ريلاكس من مقاس 3 الي 7', '1', '1', 'مقاييغفبغ', '35', '45', '2019-09-24', '53', '3', '2019-09-24 14:45:07', '2019-11-15 23:13:48'),
 (4, '202020', 'كشف', '3', '3', 'كشف', '7', '10', '2019-11-22', '2', '4', '2019-11-22 11:22:09', '2019-11-22 11:30:23'),
-(5, '534817', 'فثسف', '4', '3', 'Admin For This System', '200', '300', '2019-11-23', '13', '5', '2019-11-23 19:33:36', '2019-11-23 19:36:28');
+(5, '534817', 'فثسف', '4', '3', 'Admin For This System', '200', '300', '2019-11-23', '33', '5', '2019-11-23 19:33:36', '2019-12-10 12:52:18');
 
 -- --------------------------------------------------------
 
@@ -481,7 +573,7 @@ CREATE TABLE `suppliers` (
   `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `notes` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` text COLLATE utf8mb4_unicode_ci,
+  `image` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -534,7 +626,17 @@ INSERT INTO `supplier_start_balances` (`id`, `supplier_id`, `desc`, `date`, `pay
 (16, '6', 'nothing', '2019-12-07', '0', '999990100000', NULL, '0', '2019-12-07 15:04:59', '2019-12-07 15:04:59'),
 (17, '6', 'smdla', '2019-12-01', '1', '12', NULL, '12', '2019-12-07 15:05:49', '2019-12-07 15:05:49'),
 (18, '6', 's', '2019-12-07', '0', '13', NULL, '-1', '2019-12-07 15:10:41', '2019-12-07 15:10:41'),
-(19, '6', 'lk', '2019-12-07', '1', '1', NULL, '0', '2019-12-07 15:11:00', '2019-12-07 15:11:00');
+(19, '6', 'lk', '2019-12-07', '1', '1', NULL, '0', '2019-12-07 15:11:00', '2019-12-07 15:11:00'),
+(20, '5', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع )', '2019-12-09', '0', '800', '9', '0', '2019-12-09 10:37:46', '2019-12-09 10:37:46'),
+(21, '5', 'test', '2019-12-09', '1', '2000154965', NULL, '2000154965', '2019-12-09 10:39:09', '2019-12-09 10:39:09'),
+(22, '5', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع )', '2019-12-10', '0', '600', '10', '2000154965', '2019-12-10 05:42:49', '2019-12-10 05:42:49'),
+(23, '4', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع )', '2019-12-10', '0', '4627', '11', '-8', '2019-12-10 05:43:11', '2019-12-10 05:43:11'),
+(24, '4', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع )', '2019-12-10', '0', '1400', '13', '-8', '2019-12-10 05:44:07', '2019-12-10 05:44:07'),
+(25, '4', 'Purchase Invoice ( فاتورة مشتريات فورية الدفع )', '2019-12-10', '0', '1200', '14', '-8', '2019-12-10 05:44:46', '2019-12-10 12:52:18'),
+(26, '6', 'sdkls;ld', '2019-12-10', '0', '57', NULL, '-57', '2019-12-10 08:05:01', '2019-12-10 08:05:01'),
+(27, '6', 'sdsdsdsdsdsd', '2019-12-10', '0', '635420', NULL, '-635477', '2019-12-10 08:05:15', '2019-12-10 08:05:15'),
+(28, '6', 'sdskldksd', '2019-12-10', '1', '8656312', NULL, '8020835', '2019-12-10 08:05:29', '2019-12-10 08:05:29'),
+(29, '6', 'dlkfjdkjfdjfkdf', '2019-12-10', '1', '5468798', NULL, '13489633', '2019-12-10 08:05:45', '2019-12-10 08:05:45');
 
 -- --------------------------------------------------------
 
@@ -556,6 +658,85 @@ CREATE TABLE `supplier_types` (
 INSERT INTO `supplier_types` (`id`, `name`, `created_at`, `updated_at`) VALUES
 (1, 'Client ( زبون )', NULL, NULL),
 (2, 'Supplier ( مورد )', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sup_requests`
+--
+
+CREATE TABLE `sup_requests` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `supId` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `request` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `sup_requests`
+--
+
+INSERT INTO `sup_requests` (`id`, `supId`, `phone`, `request`, `created_at`, `updated_at`) VALUES
+(5, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم', '2019-12-09 03:14:23', '2019-12-09 01:17:20'),
+(6, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم', '2019-12-09 03:14:23', '2019-12-09 01:17:20'),
+(7, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم', '2019-12-09 03:14:23', '2019-12-09 01:17:20'),
+(25, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قط', '2019-12-10 06:12:11', '2019-12-10 06:12:11'),
+(26, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قط', '2019-12-10 06:12:30', '2019-12-10 06:12:30'),
+(32, '6', '01004460433', 'Odit est velit enim', '2019-12-10 09:33:48', '2019-12-10 09:33:48'),
+(33, '6', '01004460433', 'Quasi enim aut nostr', '2019-12-10 09:33:58', '2019-12-10 09:33:58'),
+(34, '6', '01004460433', 'السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قطعة جنط سبور 16 علما بأن 30 قطعة جنط سبور 15 قد يتم استرجعهم السلام عليكم ورحمة الله وبركاته نريد طلب عدد 20 قطعة تيل فرامل و300 قط', '2019-12-10 09:34:06', '2019-12-10 09:34:06'),
+(35, '6', '01004460433', 'Qui deserunt ab atqu', '2019-12-10 09:34:21', '2019-12-10 09:34:21'),
+(36, '5', '01004460433', 'Quasi enim aut nostr', '2019-12-10 10:22:20', '2019-12-10 10:22:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `task_date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `name`, `description`, `task_date`, `created_at`, `updated_at`) VALUES
+(1, 'Mahmoud', 'dfdfd', '2019-12-12', '2019-12-12 06:34:42', '2019-12-12 06:34:42'),
+(2, 'MahmoudasdSAfs', 'zsdfvxcvxc', '2019-12-28', '2019-12-12 06:39:55', '2019-12-12 06:39:55'),
+(3, 'Mariko Ortiz', 'dftgyrtd', '2019-12-13', '2019-12-12 07:58:01', '2019-12-12 07:58:01'),
+(4, 'sjnskfks', 'tertetrt', '2019-12-10', '2019-12-12 08:00:42', '2019-12-12 08:00:42'),
+(5, 'sjnskfks', 'tertetrt', '2019-12-10', '2019-12-12 08:01:07', '2019-12-12 08:01:07'),
+(6, 'sjnskfks', 'tertetrt', '2019-12-10', '2019-12-12 08:01:07', '2019-12-12 08:01:07'),
+(7, 'Mahmoud', 'dfdfd', '2019-12-11', '2019-12-12 08:01:23', '2019-12-12 08:01:23'),
+(8, 'Mahmoud', 'dfdfd', '2019-12-11', '2019-12-12 08:01:24', '2019-12-12 08:01:24'),
+(9, 'admin', 'dsfdfsdf', '2019-12-09', '2019-12-12 08:01:55', '2019-12-12 08:01:55'),
+(10, 'sjnskfks', 'sdsdsas', '2019-12-06', '2019-12-12 08:02:20', '2019-12-12 08:02:20'),
+(11, 'Mahmoud', NULL, '2019-12-01', '2019-12-12 08:40:23', '2019-12-12 08:40:23'),
+(12, 'Vladimir Castaneda', 'Ullam dolore odio oc', '1999-10-25', '2019-12-12 09:07:41', '2019-12-12 09:07:41'),
+(13, 'Nita Roman', 'Suscipit officiis ve', '2008-10-05', '2019-12-12 09:08:29', '2019-12-12 09:08:29'),
+(14, 'Xenos Harris', 'Tempore veniam cul', '1985-02-20', '2019-12-12 09:08:52', '2019-12-12 09:08:52'),
+(15, 'Xenos Harris', 'Tempore veniam cul', '1985-02-20', '2019-12-12 09:08:52', '2019-12-12 09:08:52'),
+(16, 'Amal Parks', 'Commodi quis nostrum', '1978-02-06', '2019-12-12 09:17:56', '2019-12-12 09:17:56'),
+(17, 'Amal Parks', 'Commodi quis nostrum', '1978-02-06', '2019-12-12 09:17:56', '2019-12-12 09:17:56'),
+(18, 'Hunter Hyde', 'Cillum ut minim cumq', '2021-01-05', '2019-12-12 09:18:59', '2019-12-12 09:18:59'),
+(19, 'Hunter Hyde', 'Cillum ut minim cumq', '2021-01-05', '2019-12-12 09:18:59', '2019-12-12 09:18:59'),
+(20, '5amesdsa', 'dsfgdgdfgdfg', '2019-12-03', '2019-12-12 09:19:39', '2019-12-12 09:19:39'),
+(21, '5amesdsa', 'dsfgdgdfgdfg', '2019-12-03', '2019-12-12 09:19:39', '2019-12-12 09:19:39'),
+(22, 'Yael Bentley', 'Nisi doloribus conse', '2019-12-02', '2019-12-12 09:20:22', '2019-12-12 09:20:22'),
+(23, '5amesdsa', 'dsfsdfsdfdfsdfsd', '2019-12-08', '2019-12-12 10:28:51', '2019-12-12 10:28:51'),
+(24, 'sjnskfks', ';sdkjfsldjflkdsjld', '2019-12-14', '2019-12-12 10:37:04', '2019-12-12 10:37:04'),
+(25, 'Keelie Hess', 'Fugit est ratione e', '2019-12-15', '2019-12-12 11:56:08', '2019-12-12 11:56:08'),
+(26, 'Keelie Hess', 'Fugit est ratione e', '2019-12-15', '2019-12-12 11:56:36', '2019-12-12 11:56:36'),
+(27, 'sjnskfks', 'rgthjkikkk', '2019-12-16', '2019-12-12 11:57:03', '2019-12-12 11:57:03');
 
 -- --------------------------------------------------------
 
@@ -591,8 +772,8 @@ CREATE TABLE `users` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `group_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `desc` text COLLATE utf8mb4_unicode_ci,
-  `address` text COLLATE utf8mb4_unicode_ci,
+  `desc` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -629,6 +810,18 @@ ALTER TABLE `branches`
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `clinics`
+--
+ALTER TABLE `clinics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `doctors`
+--
+ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -728,6 +921,18 @@ ALTER TABLE `supplier_types`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sup_requests`
+--
+ALTER TABLE `sup_requests`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `units`
 --
 ALTER TABLE `units`
@@ -748,7 +953,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `boxes`
 --
 ALTER TABLE `boxes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `branches`
@@ -763,6 +968,18 @@ ALTER TABLE `categories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `clinics`
+--
+ALTER TABLE `clinics`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `doctors`
+--
+ALTER TABLE `doctors`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
@@ -772,19 +989,19 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `invoice_product`
 --
 ALTER TABLE `invoice_product`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `offers`
@@ -802,7 +1019,7 @@ ALTER TABLE `other_invoices`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -814,7 +1031,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=683;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=725;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -844,13 +1061,25 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `supplier_start_balances`
 --
 ALTER TABLE `supplier_start_balances`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `supplier_types`
 --
 ALTER TABLE `supplier_types`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `sup_requests`
+--
+ALTER TABLE `sup_requests`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `units`

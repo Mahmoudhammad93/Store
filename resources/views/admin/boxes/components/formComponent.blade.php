@@ -17,7 +17,7 @@ inputForm('Description ( التفاصيل )',['type' => 'text', 'class' => 'form
 
 <div class='form-group'>
         <label class='col-sm-2 control-label'>Type ( النوع ) </label>
-        
+
         <div class='col-sm-10'>
           <select class='form-control'name = "type">
 
@@ -25,8 +25,8 @@ inputForm('Description ( التفاصيل )',['type' => 'text', 'class' => 'form
                @php
                  $selected0 = "selected";
                  $selected1 = "";
-               @endphp              
-            
+               @endphp
+
             @else
             @php
                  $selected1 = "selected";
@@ -34,8 +34,8 @@ inputForm('Description ( التفاصيل )',['type' => 'text', 'class' => 'form
                @endphp
             @endif
 
-            <option {{ $selected0 }} value="0" > Depit ( سحب ) </option> 
-            <option {{$selected1}}  value="1"> Credit ( ايداع ) </option> 
+            <option {{ $selected0 }} value="0" > Depit ( سحب ) </option>
+            <option {{$selected1}}  value="1"> Credit ( ايداع ) </option>
           </select>
         </div>
         </div>
