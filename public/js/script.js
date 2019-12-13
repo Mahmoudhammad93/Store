@@ -1,1 +1,5 @@
-test
+$(function () {
+   'use strict';
+
+
+});

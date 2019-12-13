@@ -30,7 +30,7 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
 
 {{--{{dd($databind['clinics']->count())}}--}}
 
-    <div class='form-group col-md-2'>
+    <div class='form-group col-md-4'>
         <label style="margin-left: 15px" class="label-control"> Clinic ( العيادة ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="clinic" id="clinic">
@@ -42,7 +42,7 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
         </div>
     </div>
 
-    <div class='form-group col-md-2'>
+    <div class='form-group col-md-4'>
         <label style="margin-left: 15px" class="label-control"> Doctor ( الطبيب ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="doctor" id="doctor">

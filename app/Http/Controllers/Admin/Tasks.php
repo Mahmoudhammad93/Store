@@ -31,7 +31,6 @@ class Tasks extends Controller
 
     public function store(Request $request)
     {
-        {{dd($request->name);}}
         if (Task::create($request->toArray())) {
             swal()->button('Close Me')->message('تم', 'تمت عملية الاضافة بنجاح', 'info');
         } else {
@@ -54,7 +53,12 @@ class Tasks extends Controller
 
     public function edit(Request $request,$id)
     {
-        return View('Admin.tasks.edit');
+        $tasks = Task::all();
+        $PageTitle = 'Tasks';
+        $headerLevelProcessTitle1 = "Tasks";
+        $headerLevelProcessTitle2 = "All ( الكل )";
+        $buttonsRoutsname = $modelViewName = "tasks";
+        return View('Admin.tasks.edit',compact('tasks', 'PageTitle', 'buttonsRoutsname', 'headerLevelProcessTitle1', 'headerLevelProcessTitle2'));
     }
 
 

@@ -31,7 +31,7 @@
     // Build Index Form
     function inputFormIndex($lable,$inputAtrrs,$errors){
       echo "
-      <div class='form-group col-md-2'>
+      <div class='form-group col-md-4'>
       <label class='col-sm-12 control-label text-center' style='text-align: center !important'>".$lable."</label>
 
       <div class='col-sm-12'>

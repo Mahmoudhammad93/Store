@@ -1,12 +1,26 @@
-<div class="form-group col-md-6">
-    <input type="text" class="form-control" name="name" />
-</div>
-<div class="form-group col-md-6">
-    <input type="date" name="task_date" class="form-control date"/>
-</div>
-<div class="form-group col-md-12">
-    <textarea name="description" class="form-control"></textarea>
-</div>
-<div class="form-group col-md-12">
-    <input type="submit" class="btn btn-success" value="Save" />
-</div>
+{{--@if( !is_permited('task','edit') == 1 )--}}
+    {{--@extends('admin.shared.master')--}}
+{{--@section('content')--}}
+    {{--<!-- Modal Edit -->--}}
+    {{--<div class="modal-content">--}}
+        {{--<div class="box box-info">--}}
+            {{--<div class="box-header with-border">--}}
+                {{--<h3 class="box-title">Edit {{ $buttonsRoutsname }} ( تعديل بيانات الفاتورة )</h3>--}}
+            {{--</div>--}}
+            {{--<form method="POST" action="{{route($buttonsRoutsname.'.update',1)}}" class="form-horizontal" enctype="multipart/form-data">--}}
+                {{--{{ csrf_field() }}--}}
+                {{--{{ method_field('put') }}--}}
+                {{--@include('admin.'.$buttonsRoutsname.'.components.EditFormComponent')--}}
+            {{--</form>--}}
+
+            {{--<!-- /.box-footer -->--}}
+
+        {{--</div>--}}
+        {{--<!-- /.box -->--}}
+    {{--</div>--}}
+    {{--<!-- End of Modal Edit -->--}}
+{{--@endsection--}}
+
+{{--@else--}}
+    {{--{{ dd('not Permitied ( ليس لديك الصلاحيات لرؤية هذا المحتوي )') }}--}}
+{{--@endif--}}

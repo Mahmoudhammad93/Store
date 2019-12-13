@@ -66,9 +66,6 @@ ul{
     height: 100%;
     background-color: transparent;
     z-index: 999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .box.box-info{
@@ -147,6 +144,8 @@ div#AllProducts > div{
     box-shadow: 1px -2px 40px #25252559;
     border-bottom: 2px solid #ddd;
     border-radius: 5px;
+    position: relative;
+    top: 15%;
 }
 
 .popup-form .cart-header{
@@ -177,6 +176,7 @@ div#AllProducts > div{
 
 .popup-form .cart-body{
     padding: 2rem;
+    overflow: hidden;
 }
 
 .popup-form .cart-footer{

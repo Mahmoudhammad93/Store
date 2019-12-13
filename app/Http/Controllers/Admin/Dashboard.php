@@ -11,19 +11,19 @@ use App\models\Supplier;
 use App\models\Product;
 use App\models\Invoice;
 use App\models\Box;
-use App\Task;
+use App\models\Task;
 
 class Dashboard extends Controller
 {
     public function index()
     {
-        $users     = User::all();
-        $suppliers = Supplier::all();
-        $products  = Product::all();
-        $patients  = Patient::all();
-        $reservations = Reservation::all();
-        $requests = Request::all();
-        $tasks = Task::all();
+        $users          = User::all();
+        $suppliers      = Supplier::all();
+        $products       = Product::all();
+        $patients       = Patient::all();
+        $reservations   = Reservation::all();
+        $requests       = Request::all();
+        $tasks          = Task::all();
         $totalGard = 0;
         $totalAlert = 0;
         foreach($products as $progard){
