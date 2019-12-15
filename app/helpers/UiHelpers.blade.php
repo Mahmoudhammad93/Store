@@ -123,6 +123,46 @@
       // filtration input form
 
 
+
+// build select form
+function selectformIndex($lable,$inputAtrrs,$value,$databind,$errors){
+    echo "
+      <div class='form-group'>
+      <label class='col-sm-4 control-label'>".$lable."</label>
+
+      <div class='col-sm-10'>
+       <select ";
+
+    foreach ($inputAtrrs as $key => $Atrrvalue) {
+        echo " ".$key." = '".$Atrrvalue."'";
+    }
+
+    echo" >";
+    foreach($databind as $data ){
+        $selected = "";
+        if($value == $data['id']){
+            $selected = "selected";
+        };
+        echo "<option value='".$data['id']."' ".$selected." > ".$data['name']." </option>";
+
+    };
+    echo"
+       </select>
+      </div>";
+    foreach($errors as $error){
+        echo "
+             <p class='invalid-feedback text-center' role='alert' style='color: red;'>
+              <strong>".$error."</strong>
+             </p>
+        ";
+    };
+    echo"
+      </div>
+      ";
+}
+///////////////////////////////////////////////////////////////
+
+
   function filterInputForm($inputAtrrs,$colwidth){
     echo "
     <div class='form-group'>

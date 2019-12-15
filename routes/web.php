@@ -107,6 +107,10 @@ Route::namespace('Admin')->prefix('backend')->middleware('auth')->group(function
     // Tasks Routes
     Route::resource('tasks', 'Tasks');
 
+    // Services Routes
+    Route::resource('services', 'services');
+    Route::post('services/print','services@print')->name('services.print');
+
 });
 
 // Pages Payment

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\models\Clinic;
 use App\models\Doctor;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\BackEndController;
+use Illuminate\Support\Facades\DB;
 
 class Clinics extends BackEndController
 {
@@ -18,7 +20,7 @@ class Clinics extends BackEndController
     function append(){
         $array = [
             'doctors' => Doctor::all(),
-            'clinics' => Clinic::all()
+            'services' => Service::all()
         ];
 
         return $array;
@@ -26,7 +28,14 @@ class Clinics extends BackEndController
 
     public function store(Request $request)
     {
+//        $cName = DB::select('select c_name from clinics');
+//        if ($cName == $cName){
+//            dd($cName);
+//        }else{
+//            dd('no');
+//        }
         $row = $this->model;
+
             if ($row->create($request->toArray())) {
                 swal()->button('Close Me')->message('تم', 'تمت عملية الاضافة بنجاح', 'info');
             } else {
