@@ -16,8 +16,10 @@ class Services extends BackEndController
 
     public function store(ServicesStore $request)
     {
+        $request->validate([
+            'c_name' => 'required|unique:services'
+        ]);
         $row = $this->model;
-
         if($row->create($request->toArray())){
             swal()->button('Close Me')->message('تم','تمت عملية الاضافة بنجاح','info');
         }else{
@@ -30,7 +32,6 @@ class Services extends BackEndController
     {
         //
     }
-
 
     public function update(ServicesStore $request, $id)
     {

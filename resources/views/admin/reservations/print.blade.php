@@ -1,4 +1,4 @@
-@if( !is_permited('reservation','print') == 1 ) 
+@if( !is_permited('reservation','print') == 1 )
 @extends('admin.shared.master')
 @section('content')
 <!-- TABLE: LATEST ORDERS -->
@@ -6,17 +6,17 @@
   <!-- /.box-body -->
     <!-- /.box-footer -->
     <div class="box-body">
-    
+
              <!-- /.table-responsive -->
       <div class="table-responsive">
         @if($rows->count() > 0)
 
         @php
-          $ths = ['Patient.No ( رقم المريض )' ,'Name ( الاسم )' , 'Gender ( الجنس )', 'Phone ( رقم الهاتف )','Date of birth (تاريخ الميلاد)'];
+          $ths = ['Patient.No ( رقم المريض )' ,'Name ( الاسم )' , 'Gender ( الجنس )', 'Phone ( رقم الهاتف )','Date of birth (تاريخ الميلاد)','Reservation Date (تاريخ الحجز)','End Of Date (تاريخ الانتهاء)','Notes (ملاحظات)'];
           $tds = $rows;
           $tdOnly = ['patient_no','name','gender','phone','date_of_birth'];
           $Otipnsinputs  = [];
-        @endphp  
+        @endphp
 
         <table class="table table-hover no-margin">
           @include("admin.".$buttonsRoutsname.".components.tableComponent",[$ths,$tds,$tdOnly,$Otipnsinputs])
@@ -26,11 +26,11 @@
         @endif
       </div>
       <!-- /.table-responsive -->
-      
+
     <!-- include table response -->
 
     </div>
-    
+
   </div>
   <!-- /.box -->
 

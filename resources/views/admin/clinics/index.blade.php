@@ -7,7 +7,7 @@
     <div class="modal-content">
         <div class="box box-info">
             <div class="box-header with-border">
-                <h3 class="box-title">Add {{ $buttonsRoutsname }} ( اضافة مريض )</h3>
+                <h3 class="box-title">Add {{ $buttonsRoutsname }} ( اضافة عيادة )</h3>
             </div>
 
             <form method="POST" action="{{route($buttonsRoutsname.'.store')}}" id="insertForm" class="form-horizontal" enctype="multipart/form-data">

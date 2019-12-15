@@ -93,6 +93,10 @@ inputForm('Description ( تفاصيل )',['type' => 'text', 'class' => 'form-con
                   'name' => 'Tasks ( المهمات ) ',
                   'menu' => 'tasks'
               ],
+              [
+                  'name' => 'Services ( الخدمات ) ',
+                  'menu' => 'services'
+              ],
           ];
         ?>
         @foreach($allmenus as $men)

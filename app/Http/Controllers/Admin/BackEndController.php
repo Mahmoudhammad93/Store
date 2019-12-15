@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Task;
 use Softon\SweetAlert\Facades\SWAL;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -17,7 +16,6 @@ class BackEndController extends Controller
     public function index(Request $request)
     {
         $filterData = $request->all();
-//        $tasks = Task::all();
 
         $rows = $this->model;
         if(!empty($this->with())){

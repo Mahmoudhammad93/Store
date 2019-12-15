@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BackEndController;
 use App\models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BackEnd\Task\Store as TaskStore;
 
 class Tasks extends Controller
 {
@@ -51,20 +52,26 @@ class Tasks extends Controller
     }
 
 
-    public function edit(Request $request,$id)
+    public function edit($id)
     {
-        $tasks = Task::all();
+        $tasks = Task::findOrFail($id);;
         $PageTitle = 'Tasks';
         $headerLevelProcessTitle1 = "Tasks";
         $headerLevelProcessTitle2 = "All ( الكل )";
         $buttonsRoutsname = $modelViewName = "tasks";
-        return View('Admin.tasks.edit',compact('tasks', 'PageTitle', 'buttonsRoutsname', 'headerLevelProcessTitle1', 'headerLevelProcessTitle2'));
+        return View('Admin.tasks.edit',compact('tasks','PageTitle', 'buttonsRoutsname', 'headerLevelProcessTitle1', 'headerLevelProcessTitle2'));
     }
 
 
-    public function update(Request $request, $id)
+    public function update(TaskStore $request, $id)
     {
-        //
+        $row = Task::findOrFail($id);
+        if($row->update($request->toArray())){
+            swal()->button('Close Me')->message('تم','تمت عملية تعديل البيانات بنجاح','info');
+        }else{
+            swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
+        }
+        return redirect('backend/tasks');
     }
 
     public function destroy($id)

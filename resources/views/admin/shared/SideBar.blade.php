@@ -117,6 +117,9 @@
           @if( is_permited('tasks','view') == 1 )
               <li class="{{ is_active('tasks') }}" ><a href="{{ route('tasks.index') }}"><i class="fa fa-tasks"></i> <span>Tasks ( المهمات ) </span></a></li>
           @endif
+          @if( is_permited('services','view') == 1 )
+              <li class="{{ is_active('services') }}" ><a href="{{ route('services.index') }}"><i class="fa fa-ambulance"></i> <span>Services ( الخدمات ) </span></a></li>
+          @endif
       </ul>
       <!-- /.sidebar-menu -->
     </section>

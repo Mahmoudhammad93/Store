@@ -22,8 +22,10 @@
 
 @endphp
 
-</div>
 <!-- /.box-body -->
-<div class="box-footer">
-    <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+    <div class="form-group col-md-12">
+        <div class="box-footer">
+            <input id="edit_id" type="submit" class="btn btn-success" value="Save ( حفظ )">
+        </div>
+    </div>
 </div>

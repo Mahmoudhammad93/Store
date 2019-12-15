@@ -1,4 +1,4 @@
-@if(!is_permited('services','view') == 1 )
+@if(is_permited('services','view') == 1 )
   @extends('admin.shared.master')
   @section('content')
   <!-- TABLE: LATEST ORDERS -->

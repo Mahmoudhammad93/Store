@@ -27,6 +27,9 @@ class Patients extends BackEndController
 
     public function store(PatientsStore $request)
     {
+        $request->validate([
+            'patient_no' => 'required|unique:patients'
+        ]);
         $row = $this->model;
         if($row->create($request->toArray())){
             swal()->button('Close Me')->message('تم','تمت عملية الاضافة بنجاح','info');

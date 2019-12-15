@@ -37,7 +37,7 @@ class Reservations extends BackEndController
     }
 
 
-    public function update(Reservation $request,$id)
+    public function update(ReservationsStore $request,$id)
     {
         $row = $this->model->findOrFail($id);
 
@@ -46,7 +46,7 @@ class Reservations extends BackEndController
          }else{
             swal()->button('Close Me')->message('Sorry !!','Your Process Faild !!','info');
          }
-        return redirect()->back();
+        return redirect('backend/reservations');
     }
 
     public function profile($id)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\BackEnd\Service;
+namespace App\Http\Requests\BackEnd\Task;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,8 +24,9 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'c_name'=> 'required',
-            'c_price'=> 'required'
+            'name'=> 'required',
+            'description'=> 'required',
+            'task_date'=> 'required'
         ];
     }
 }

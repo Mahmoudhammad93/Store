@@ -11,9 +11,6 @@ inputFormIndex('Patient.No (رقم المريض)',['type' => 'number', 'class' =
 $input = "name";
 inputFormIndex('Name (الاسم)',['type' => 'text', 'class' => 'form-control','name' => $input ,'placeholder' => 'Enter '.$input ] , isset($errors->toArray()[$input]) ? $errors->toArray()[$input] : [] );
 
-$input = "gender";
-inputFormIndex('Gender (الجنس)',['type' => 'text', 'class' => 'form-control','name' => $input ,'placeholder' => 'Enter '.$input ] , isset($errors->toArray()[$input]) ? $errors->toArray()[$input] : [] );
-
 $input = "address";
 inputFormIndex('Address (العنوان)',['type' => 'text', 'class' => 'form-control','name' => $input ,'placeholder' => 'Enter '.$input ] , isset($errors->toArray()[$input]) ? $errors->toArray()[$input] : [] );
 
@@ -29,8 +26,18 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
 @endphp
 
 {{--{{dd($databind['clinics']->count())}}--}}
+    <div class='form-group col-md-3'>
+        <label class="col-sm-12  label-control text-center"> Gender ( الجنس ) </label>
+        <div class='col-sm-12'>
+            <select class='form-control' onchange="productsInfo(0,this.value)" name="gender" id="clinic">
+                <option value="">-- Select Gender ( اختر الجنس )  --</option>
+                <option value="Male ( ذكر )">Male ( ذكر )</option>
+                <option value="Female ( أنثي )">Female ( أنثي )</option>
+            </select>
+        </div>
+    </div>
 
-    <div class='form-group col-md-4'>
+    <div class='form-group col-md-3'>
         <label style="margin-left: 15px" class="label-control"> Clinic ( العيادة ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="clinic" id="clinic">
@@ -41,8 +48,11 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
             </select>
         </div>
     </div>
+    @php
 
-    <div class='form-group col-md-4'>
+    @endphp
+
+    <div class='form-group col-md-3'>
         <label style="margin-left: 15px" class="label-control"> Doctor ( الطبيب ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="doctor" id="doctor">
@@ -53,6 +63,7 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
             </select>
         </div>
     </div>
+
 
 </div>
 <!-- /.box-body -->

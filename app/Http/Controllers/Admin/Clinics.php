@@ -34,6 +34,9 @@ class Clinics extends BackEndController
 //        }else{
 //            dd('no');
 //        }
+        $request->validate([
+            'c_name' => 'required|unique:clinics'
+        ]);
         $row = $this->model;
 
             if ($row->create($request->toArray())) {
