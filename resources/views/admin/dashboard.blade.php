@@ -30,7 +30,7 @@
 
             </div>
             <div class="icon">
-                <i class="fa fa-user-md"></i>
+                <i class="fa fa-frown-o"></i>
             </div>
             <a href="{{ route('patients.index') }}" class="small-box-footer">More info </a>
         </div>
@@ -138,7 +138,7 @@
     <!-- small box -->
     <div class="small-box bg-aqua">
     <div class="inner text-center">
-        <h3>{{ round($box->totl_value,5) }}</h3>
+        <h3>{{ round($box->totl_value,5) }} LE</h3>
 
         <p> Box ( اجمالي المبلغ بالصندوق  )</p>
 
@@ -197,6 +197,57 @@
     <a href="#" class="small-box-footer">No More info </a>
     </div>
 </div>
+
+    <div class="col-md-6 col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Services Info <span>Last 5 Services<i class="fa fa-plus" style="margin-left: 20px"></i></span></div>
+            <div class="panel-body">
+                <div class="serv-info" style="font-weight: bold;border: 1px solid #ddd;">
+                    <p>
+                        Service Name
+                    </p>
+                    <span>
+                        Service Price
+                    </span>
+                </div>
+                @foreach($services as $service)
+                    <div class="serv-info" style="border-right: 1px solid #ddd;border-left: 1px solid #ddd;">
+                        <p>
+                            {{ $service->c_name }}
+                        </p>
+                        <span>
+                            {{ $service->c_price }} LE
+                        </span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">Doctors Info <span><i class="fa fa-plus" style="margin-left: 20px"></i></span></div>
+            <div class="panel-body">
+                <div class="serv-info" style="font-weight: bold;border: 1px solid #ddd;">
+                    <p>
+                        Doctor Name
+                    </p>
+                    <span>
+                        Doctor Specialty
+                    </span>
+                </div>
+                @foreach($doctors as $doctor)
+                    <div class="serv-info" style="border-right: 1px solid #ddd;border-left: 1px solid #ddd;">
+                        <p>
+                            {{ $doctor->name }}
+                        </p>
+                        <span>
+                            {{ $doctor->specialty }}
+                        </span>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
 </div>
 @else

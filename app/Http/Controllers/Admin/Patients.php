@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BackEndController;
 use App\models\Clinic;
 use App\models\Doctor;
 use App\models\Patient;
+use App\Models\Service;
 use App\models\User;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class Patients extends BackEndController
     function append(){
         $array = [
             'clinics' => Clinic::all(),
-            'doctors' => Doctor::all()
+            'doctors' => Doctor::all(),
+            'services' => Service::all()
         ];
 
         return $array;

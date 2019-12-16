@@ -38,7 +38,7 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
     </div>
 
     <div class='form-group col-md-3'>
-        <label style="margin-left: 15px" class="label-control"> Clinic ( العيادة ) </label>
+        <label style="margin-left: 15px" class="col-sm-12 label-control text-center"> Clinic ( العيادة ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="clinic" id="clinic">
                 <option value="">-- Select Clinic ( اختر العيادة )  --</option>
@@ -48,12 +48,21 @@ inputFormIndex('Notes (ملاحظات)',['type' => 'text', 'class' => 'form-cont
             </select>
         </div>
     </div>
-    @php
-
-    @endphp
 
     <div class='form-group col-md-3'>
-        <label style="margin-left: 15px" class="label-control"> Doctor ( الطبيب ) </label>
+        <label style="margin-left: 15px" class="col-sm-12 label-control text-center"> Service ( الخدمة ) </label>
+        <div class='col-sm-12'>
+            <select class='form-control' onchange="productsInfo(0,this.value)" name="service" id="service">
+                <option value="">-- Select Service ( اختر الخدمة )  --</option>
+                @for($i = 0; $i < $databind['services']->count(); $i++)
+                    <option value="{{$databind['services'][$i]->c_name}}">{{$databind['services'][$i]->c_name}}</option>
+                @endfor
+            </select>
+        </div>
+    </div>
+
+    <div class='form-group col-md-3'>
+        <label style="margin-left: 15px" class="col-sm-12 label-control text-center"> Doctor ( الطبيب ) </label>
         <div class='col-sm-12'>
             <select class='form-control' onchange="productsInfo(0,this.value)" name="doctor" id="doctor">
                 <option value="">-- Select Doctor ( اختر الطبيب )  --</option>

@@ -44,9 +44,9 @@
             <div class="table-responsive">
             @if($rows->count() > 0)
               @php
-              $ths = ['Patient.No ( رقم المريض )' ,'Name ( الاسم )' , 'Gender ( الجنس )', 'Phone ( رقم الهاتف )','Date of birth (تاريخ الميلاد)','Notes ( ملاحظات )','Clinic ( العيادة )','Doctor ( الطبيب )','Options ( الخيارات )'];
+              $ths = ['Patient.No ( رقم المريض )' ,'Name ( الاسم )' , 'Gender ( الجنس )', 'Phone ( رقم الهاتف )','Date of birth (تاريخ الميلاد)','Notes ( ملاحظات )','Clinic ( العيادة )','Doctor ( الطبيب )','Service ( الخدمة )','Options ( الخيارات )'];
               $tds = $rows;
-              $tdOnly = ['patient_no','name','gender','phone','date_of_birth', 'notes','clinic','doctor'];
+              $tdOnly = ['patient_no','name','gender','phone','date_of_birth', 'notes','clinic','doctor','service'];
               @endphp
               @php
               $Otipnsinputs  = [

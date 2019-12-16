@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Task;
+use App\models\Task;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BackEndController;
 use App\models\Invoice;

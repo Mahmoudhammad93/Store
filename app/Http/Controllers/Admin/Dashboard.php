@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\models\Doctor;
 use App\Models\Patient;
 use App\models\Reservation;
 use App\models\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Service;
 use App\models\User;
 use App\models\Supplier;
 use App\models\Product;
@@ -24,6 +26,8 @@ class Dashboard extends Controller
         $reservations   = Reservation::all();
         $requests       = Request::all();
         $tasks          = Task::all();
+        $doctors        = Doctor::all();
+        $services       = Service::orderBy('id', 'desc')->take(5)->get();
         $totalGard = 0;
         $totalAlert = 0;
         foreach($products as $progard){
@@ -47,7 +51,7 @@ class Dashboard extends Controller
         $headerLevelProcessTitle2 = "Statidtics ( احصائيات )";
         $buttonsRoutsname = $modelViewName = "dashboard";
 
-        return View('Admin.dashboard',compact('totalAlert','totalGard','tasks','todayTotalGain','box','sellInvoice','requests','purchaseInvoice','products','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
+        return View('Admin.dashboard',compact('totalAlert','totalGard','tasks','doctors','todayTotalGain','box','sellInvoice','requests','purchaseInvoice','products','services','patients','reservations','suppliers','users','PageTitle','buttonsRoutsname','headerLevelProcessTitle1','headerLevelProcessTitle2'));
 
     }
 }

@@ -129,6 +129,52 @@ div#AllProducts > div{
     background-color: #b90a0a;
 }
 
+/*----- Start Dashboard -----*/
+
+.panel-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.panel-body{
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.panel-body.open{
+    height: auto;
+    padding: 15px;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.serv-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+.serv-info:nth-last-of-type(odd){
+    background-color: #f1f1f1;
+}
+.serv-info p,
+.serv-info span{
+    margin: 0;
+    text-align: center;
+    width: 50%;
+}
+
+/*----- /end dashboard ------*/
+
 /*--------- Start Request Form Popup ---------*/
 .overlay{
     transform: scale(0);
