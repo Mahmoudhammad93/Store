@@ -264,11 +264,7 @@ div#AllProducts > div{
     font-size: 20px;
     font-weight: bold;
     color: #aaa;
-    font-font: sans-serif;
-}
-
-input.ph-req{
-
+    font-family: sans-serif;
 }
 
 .req-info, .req-content{
@@ -393,7 +389,12 @@ input.ph-req{
 }
 
 /*--------- /end requests form popup ----------*/
-
+.content-header>h1 {
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 0 4px rgba(168, 168, 168, 0.658);
+    border-radius: 5px;
+}
 /*----- Start Tasks Page ----------*/
 .fc-day.fc-widget-content{
     -webkit-transition: all .2s ease-in-out;
