@@ -69,7 +69,8 @@ ul{
 }
 
 .box.box-info{
-    box-shadow: 0 0 10px #828282bf;
+    box-shadow: 0 0 4px #82828263;
+    border-bottom: 1px solid #aaa;
 }
 
 .main-footer i.fa-heart{
