@@ -15,7 +15,13 @@
             <tr class="row{{$td['id']}} {{ $alertrow }}">
                 @foreach($tdOnly as $only)
                 @if($only == 'supplier_id')
-                <td class='text-center'>{{ $td->getSupplier->name }}</td>
+                <td class='text-center'>
+                    @if(isset($td->getSupplier->name) && $td->getSupplier->type == 2)
+                        {{ $td->getSupplier->name }}
+                    @else
+                        Supplier is deleted
+                    @endif
+                </td>
                 @else
                 <td class='text-center'>{{ $only == "total_value" ? round($td->$only,3) : $td->$only }}</td>
                 @endif

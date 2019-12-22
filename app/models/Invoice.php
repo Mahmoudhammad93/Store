@@ -10,7 +10,8 @@ class Invoice extends Model
     protected $fillable = ['code','due','date','invoice_type','total_value','total_gain','supplier_id'];
 
     public function getSupplier(){
-        return $this->belongsTo("App\models\Supplier", "supplier_id");
+//        return $this->belongsTo("App\models\Supplier", "supplier_id");
+        return $this->belongsTo(Supplier::class, 'supplier_id');
     }
 
     public function getInvoiceProducts(){
