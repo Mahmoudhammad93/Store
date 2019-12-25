@@ -27,20 +27,29 @@
 <script>
     $(document).ready(function() {
         // page is now ready, initialize the calendar...
-        var today_date = moment().format('YYYY-MM-DD');
-        console.log(today_date);
         // $('#calendar').fullCalendar('gotoDate', today_date);
         $('#calendar').fullCalendar({
             events : [
-                    @foreach($tasks as $task)
+                @foreach($tasks as $task)
                         {
                             title : '{{ $task->name }}',
-                            body : '{{ $task->description }}',
                             id: '{{ $task->id }}',
                             start : '{{ $task->task_date }}',
                             url : '{{ route('tasks.edit', $task->id) }}'
                         },
-                    @endforeach
+                        {
+                            title : '{{ $task->description }}',
+                            id: '{{ $task->id }}',
+                            start : '{{ $task->task_date }}',
+                            url : '{{ route('tasks.edit', $task->id) }}'
+                        },
+                        {
+                            title : '{{ $task->task_date }}',
+                            id: '{{ $task->id }}',
+                            start : '{{ $task->task_date }}',
+                            url : '{{ route('tasks.edit', $task->id) }}'
+                        },
+                @endforeach
             ],
             header: {
                 left: 'prev,next today',
@@ -49,8 +58,6 @@
                 // right: 'month,basicWeek,basicDay'
             }
         });
-
-        console.log(header);
 
         $('.fc-day.fc-widget-content').append('<div>'+events.id+'</div>');
     });

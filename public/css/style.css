@@ -396,8 +396,22 @@ div#AllProducts > div{
     border-radius: 5px;
 }
 /*----- Start Tasks Page ----------*/
+#calendar{
+    width: 70%;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 4px #bfbfbf;
+    border-radius: 10px;
+}
+.fc-view>table{
+    border: 1px solid #ddd;
+}
+
+
 .fc-day.fc-widget-content{
     -webkit-transition: all .2s ease-in-out;
+    position: relative;
 }
 
 .fc-day.fc-widget-content.fc-today{
@@ -407,6 +421,21 @@ div#AllProducts > div{
     box-shadow: 0 0 4px #8e8e8ed4;
     cursor: pointer;
 }
+
+.fc-row .fc-content-skeleton tbody tr:nth-last-of-type(1) .fc-event{
+    background-color: red;
+    border: 1px solid red;
+}
+
+.fc-row .fc-content-skeleton tbody tr:nth-last-of-type(2) .fc-event{
+    background-color: green;
+    border: 1px solid green;
+}
+
+.fc-row.fc-week.fc-widget-content:nth-last-of-type(even){
+    background-color: #f1f1f1;
+}
+
 /*----- /end tasks page ----------*/
 
 @keyframes heart{
